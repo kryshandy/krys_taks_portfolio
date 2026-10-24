@@ -98,25 +98,28 @@ const currentExp = experience.filter(e => e.data.current);
       <!-- Aside Profil -->
       <aside class="space-y-6">
         <!-- Photo de profil -->
-        <div class="card-premium p-6 text-center">
-          <img
-            src="/images/profile.png"
-            alt={`${PERSONAL_INFO.displayName} - Photo de profil`}
-            class="w-32 h-32 mx-auto rounded-2xl border-2 border-primary/30 shadow-lg object-cover mb-4"
-          />
+        <div class="card-premium-elevated p-6 text-center">
+          <div class="relative w-40 h-40 mx-auto mb-5">
+            <img
+              src="/images/profile.png"
+              alt={`${PERSONAL_INFO.displayName} - Photo de profil`}
+              class="w-full h-full rounded-2xl object-cover border-2 border-border/40 shadow-xl"
+              loading="lazy"
+            />
+            <div class="absolute -bottom-3 -right-3 w-10 h-10 rounded-full bg-primary border-4 border-background flex items-center justify-center shadow-lg">
+              <Icon name="lucide:check" class="w-5 h-5 text-primary-foreground" aria-hidden="true" />
+            </div>
+          </div>
           <h3 class="text-heading-md font-bold text-foreground mb-1">{PERSONAL_INFO.displayName}</h3>
-          <p class="text-body-sm text-primary font-medium mb-2">{PERSONAL_INFO.role}</p>
-          <p class="text-caption text-muted-foreground">{PERSONAL_INFO.location}</p>
-          <p class="text-caption text-muted-foreground mt-1">Disponible pour opportunités sur site, hybride ou remote</p>
-        </div>
-
-        <div class="card-premium p-6">
-          <h3 class="text-heading-sm font-semibold text-foreground mb-4 flex items-center gap-2">
-            <Icon name="lucide:map-pin" class="w-4 h-4 text-primary" />
-            Localisation
-          </h3>
-          <p class="text-body font-medium text-foreground">{PERSONAL_INFO.location}</p>
-          <p class="text-caption text-muted-foreground mt-1">Disponible pour opportunités sur site, hybride ou remote</p>
+          <p class="text-body-sm text-primary font-medium mb-3">{PERSONAL_INFO.role}</p>
+          <div class="flex items-center justify-center gap-1.5 text-caption text-muted-foreground mb-2">
+            <Icon name="lucide:map-pin" class="w-3.5 h-3.5" />
+            <span>{PERSONAL_INFO.location}</span>
+          </div>
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-caption font-medium">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            Disponible
+          </span>
         </div>
 
         <div class="card-premium p-6">
@@ -171,7 +174,7 @@ const currentExp = experience.filter(e => e.data.current);
 
         <div class="card-premium p-6">
           <h3 class="text-heading-sm font-semibold text-foreground mb-4 flex items-center gap-2">
-            <Icon name="lucide:sparkles" class="w-4 h-4 text-accent" />
+            <Icon name="lucide:star" class="w-4 h-4 text-accent" />
             Centres d'Intérêt
           </h3>
           <div class="flex flex-wrap gap-2">
