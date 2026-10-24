@@ -1,0 +1,13 @@
+{
+  "date": "2025-04-30",
+  "type": "learning",
+  "title": "Validation Laboratoire Réseaux Cisco & Wireshark Forensics",
+  "description": "Déploiement complet de segmentation VLAN, routage dynamique OSPF et protocoles de défense contre les intrusions.",
+  "tags": [
+    "Cisco",
+    "VLAN",
+    "Wireshark",
+    "TCP/IP"
+  ],
+  "project": "Laboratoire Réseau"
+}

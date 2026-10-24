@@ -1,0 +1,6 @@
+# robots.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://votre-domaine.com/sitemap-index.xml
+Host: https://votre-domaine.com

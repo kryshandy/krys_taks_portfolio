@@ -1,0 +1,19 @@
+{
+  "category": "fullstack",
+  "name": "Développement Web Full-Stack",
+  "level": 4,
+  "years": 2,
+  "description": "Interfaces modernes et réactives en React, Astro et Tailwind CSS associées à des backends Node.js et Django robustes.",
+  "icon": "lucide:code",
+  "tags": [
+    "React",
+    "Node.js",
+    "Django",
+    "Astro",
+    "Tailwind CSS",
+    "WebSockets",
+    "REST APIs"
+  ],
+  "featured": true,
+  "order": 2
+}

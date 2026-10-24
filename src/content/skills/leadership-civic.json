@@ -1,0 +1,17 @@
+{
+  "category": "leadership",
+  "name": "Leadership, Compétitions & Prise de Parole",
+  "level": 5,
+  "years": 2,
+  "description": "1er Prix Hackathon EEUEZ, Finaliste panafricain GCD4F, plaidoyer pour la jeunesse et l'autonomie technologique au Cameroun.",
+  "icon": "lucide:award",
+  "tags": [
+    "1er Prix Hackathon EEUEZ",
+    "Finaliste GCD4F",
+    "Prise de parole",
+    "Gestion de projet",
+    "Engagement civique"
+  ],
+  "featured": true,
+  "order": 7
+}

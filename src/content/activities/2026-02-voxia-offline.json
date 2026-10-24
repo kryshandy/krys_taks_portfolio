@@ -1,0 +1,14 @@
+{
+  "date": "2026-02-20",
+  "type": "release",
+  "title": "VoxIA v1.0 — Architecture IA 100% Hors-Ligne",
+  "description": "Stabilisation du moteur de traitement vocal embarqué sur Android natif (Kotlin) avec zéro dépendance internet pour personnes malvoyantes.",
+  "repo": "https://github.com/Henri-Michel-Essomba-Djomeni/VoxIA",
+  "tags": [
+    "Kotlin",
+    "Android",
+    "IA Embarquée",
+    "Offline"
+  ],
+  "project": "VoxIA"
+}

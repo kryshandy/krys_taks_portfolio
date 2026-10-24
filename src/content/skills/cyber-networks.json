@@ -1,0 +1,19 @@
+{
+  "category": "reliability",
+  "name": "Réseaux Cisco & Cybersécurité",
+  "level": 4,
+  "years": 2,
+  "description": "Configuration Cisco IOS (switches & routeurs, VLAN, OSPF), analyse de paquets Wireshark et certification OPSWAT CIP.",
+  "icon": "lucide:shield-check",
+  "tags": [
+    "Cisco IOS",
+    "Wireshark",
+    "OPSWAT CIP",
+    "VLAN",
+    "TCP/IP",
+    "Sécurité Réseau",
+    "Google Cyber"
+  ],
+  "featured": true,
+  "order": 4
+}

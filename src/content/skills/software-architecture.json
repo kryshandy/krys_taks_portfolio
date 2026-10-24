@@ -1,0 +1,18 @@
+{
+  "category": "architecture",
+  "name": "Architecture Logicielle & Systèmes",
+  "level": 4,
+  "years": 2,
+  "description": "Modélisation de données relationnelles, principes MVVM / MVC, gestion des états asynchrones et sécurité RBAC fine.",
+  "icon": "lucide:layers",
+  "tags": [
+    "Clean Architecture",
+    "RBAC",
+    "Design Patterns",
+    "UML / Modélisation",
+    "API Design",
+    "PostgreSQL"
+  ],
+  "featured": false,
+  "order": 5
+}

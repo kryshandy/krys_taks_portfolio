@@ -1,0 +1,18 @@
+{
+  "category": "cloud",
+  "name": "Environnement Linux & Outils d'Ingénierie",
+  "level": 4,
+  "years": 3,
+  "description": "Maîtrise des environnements Linux, automatisation Bash/Shell, Git/GitHub pour le versioning d'équipe et conteneurisation Docker.",
+  "icon": "lucide:terminal",
+  "tags": [
+    "Linux (Debian/Ubuntu)",
+    "Git & GitHub",
+    "Docker",
+    "Bash / Shell",
+    "GNS3",
+    "VS Code"
+  ],
+  "featured": false,
+  "order": 6
+}

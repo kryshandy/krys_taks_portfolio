@@ -1,0 +1,82 @@
+---
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import { formatDate, cn } from '../utils/helpers';
+
+const experience = await getCollection('experience');
+const sortedExp = experience.sort((a, b) => a.data.order - b.data.order);
+---
+<section id="parcours" class="section bg-surface/30">
+  <div class="container-premium">
+    <header class="max-w-3xl mx-auto text-center mb-16">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/50 bg-surface/50 text-caption font-medium text-muted-foreground mb-4">
+        <Icon name="lucide:briefcase" class="w-4 h-4 text-primary" aria-hidden="true" />
+        Parcours & Formation
+      </span>
+      <h2 class="text-display-md font-display font-bold tracking-tight text-foreground mb-4">
+        Une trajectoire guidée par la rigueur et l'audace
+      </h2>
+      <p class="text-body-lg text-muted-foreground/90">
+        De la maintenance informatique et l'obtention du GCE Advanced Level jusqu'à la Licence en IA et le lead technique de solutions sociétales.
+      </p>
+    </header>
+
+    <div class="relative max-w-4xl mx-auto">
+      <div class="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-border to-transparent" aria-hidden="true" />
+
+      <dl class="space-y-10" role="list">
+        {sortedExp.map((exp) => (
+          <div class="relative flex gap-5 sm:gap-8 group" role="listitem">
+            <div class="relative flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl border border-border/50 bg-card flex items-center justify-center z-10 shadow-md group-hover:border-primary transition-colors">
+              <div class="w-3 h-3 rounded-full bg-primary group-hover:scale-125 transition-transform" />
+            </div>
+
+            <div class="flex-1 min-w-0 pt-1">
+              <div class="card-premium p-6 sm:p-7">
+                <div class="flex flex-wrap items-start justify-between gap-3 mb-3">
+                  <div>
+                    <div class="flex flex-wrap items-center gap-2 mb-2">
+                      <span class="badge-primary font-mono text-caption">
+                        {formatDate(exp.data.startDate)} – {exp.data.current ? 'Présent' : formatDate(exp.data.endDate!)}
+                      </span>
+                      {exp.data.current && (
+                        <span class="badge-success text-caption">En cours</span>
+                      )}
+                    </div>
+                    <h3 class="text-heading-md font-bold text-foreground mb-1">{exp.data.role}</h3>
+                    <p class="text-body font-semibold text-primary">{exp.data.company}</p>
+                    <p class="text-caption text-muted-foreground flex items-center gap-1 mt-1">
+                      <Icon name="lucide:map-pin" class="w-3.5 h-3.5" />
+                      {exp.data.location}
+                    </p>
+                  </div>
+                </div>
+
+                <p class="text-body-sm text-muted-foreground/90 mb-4 leading-relaxed">{exp.data.description}</p>
+
+                <ul class="space-y-2 mb-4" role="list">
+                  {exp.data.achievements.map((item) => (
+                    <li class="flex items-start gap-2.5 text-body-sm text-muted-foreground">
+                      <Icon name="lucide:check" class="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {exp.data.stack && (
+                  <div class="flex flex-wrap gap-1.5 pt-2 border-t border-border/30">
+                    {exp.data.stack.map((tech) => (
+                      <span class="px-2.5 py-1 rounded-lg bg-surface/60 border border-border/40 text-caption font-mono text-muted-foreground">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,101 @@
+---
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import { SKILL_CATEGORIES } from '../utils/constants';
+
+const skills = await getCollection('skills');
+const groupedSkills = SKILL_CATEGORIES.map(cat => ({
+  ...cat,
+  items: skills.filter(s => s.data.category === cat.key).sort((a, b) => a.data.order - b.data.order)
+})).filter(cat => cat.items.length > 0);
+---
+<section id="competences" class="section bg-background">
+  <div class="container-premium">
+    <header class="max-w-3xl mx-auto text-center mb-16">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/50 bg-surface/50 text-caption font-medium text-muted-foreground mb-4">
+        <Icon name="lucide:cpu" class="w-4 h-4 text-primary" aria-hidden="true" />
+        Compétences & Savoir-Faire
+      </span>
+      <h2 class="text-display-md font-display font-bold tracking-tight text-foreground mb-4">
+        Un socle technique polyvalent et exigeant
+      </h2>
+      <p class="text-body-lg text-muted-foreground/90">
+        De la programmation système et mobile à l'intelligence artificielle embarquée et la sécurité réseau.
+      </p>
+    </header>
+
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {groupedSkills.map((cat) => (
+        <article key={cat.key} class="card-premium-elevated p-6 sm:p-7 flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary/20 transition-colors">
+                <Icon name={cat.icon} class="w-6 h-6" aria-hidden="true" />
+              </div>
+              <h3 class="text-heading-sm font-bold text-foreground">{cat.label}</h3>
+            </div>
+
+            <div class="space-y-4">
+              {cat.items.map((skill) => (
+                <div key={skill.id} class="space-y-1.5">
+                  <div class="flex items-center justify-between text-body-sm">
+                    <span class="font-medium text-foreground">{skill.data.name}</span>
+                    <span class="font-mono text-caption text-primary font-semibold">{skill.data.level}/5</span>
+                  </div>
+                  <div class="h-2 rounded-full bg-surface-sunken overflow-hidden">
+                    <div
+                      class="h-full rounded-full bg-gradient-to-r from-primary to-accent transition-all duration-500 ease-spring"
+                      style={{ width: `${(skill.data.level / 5) * 100}%` }}
+                    />
+                  </div>
+                  {skill.data.description && (
+                    <p class="text-caption text-muted-foreground leading-relaxed">{skill.data.description}</p>
+                  )}
+                  {skill.data.tags && (
+                    <div class="flex flex-wrap gap-1 pt-1">
+                      {skill.data.tags.map((tag: string) => (
+                        <span class="text-micro font-mono px-2 py-0.5 rounded bg-surface/80 text-muted-foreground border border-border/30">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <!-- Principes d'ingénierie -->
+    <div class="mt-16 card-premium p-6 sm:p-8">
+      <h3 class="text-heading-md font-bold text-foreground mb-6 flex items-center gap-2">
+        <Icon name="lucide:check-check" class="w-5 h-5 text-primary" />
+        Mes principes d'ingénierie logicielle
+      </h3>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="p-4 rounded-xl bg-surface/50 border border-border/30">
+          <Icon name="lucide:wifi-off" class="w-6 h-6 text-primary mb-2" />
+          <h4 class="text-body font-semibold text-foreground mb-1">Offline-First</h4>
+          <p class="text-caption text-muted-foreground">Une application doit fonctionner même quand le réseau fait défaut. Le cloud est un renfort, pas une dépendance obligatoire.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-surface/50 border border-border/30">
+          <Icon name="lucide:shield" class="w-6 h-6 text-accent mb-2" />
+          <h4 class="text-body font-semibold text-foreground mb-1">Sécurité By Design</h4>
+          <p class="text-caption text-muted-foreground">Cloisonnement des rôles, chiffrement local, validation stricte et conformité aux standards de protection industrielle.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-surface/50 border border-border/30">
+          <Icon name="lucide:zap" class="w-6 h-6 text-emerald-400 mb-2" />
+          <h4 class="text-body font-semibold text-foreground mb-1">Sobriété & Performance</h4>
+          <p class="text-caption text-muted-foreground">Pas de frameworks pachydermiques inutiles. Le code doit s'exécuter avec une latence minimale sur du matériel standard.</p>
+        </div>
+        <div class="p-4 rounded-xl bg-surface/50 border border-border/30">
+          <Icon name="lucide:users" class="w-6 h-6 text-sky-400 mb-2" />
+          <h4 class="text-body font-semibold text-foreground mb-1">Impact Humain</h4>
+          <p class="text-caption text-muted-foreground">La technologie tire sa noblesse de son utilité sociale : inclusion des personnes vulnérables, santé et sécurité civile.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

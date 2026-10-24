@@ -1,0 +1,18 @@
+{
+  "category": "ai",
+  "name": "IA Appliquée & Offline-First",
+  "level": 4,
+  "years": 2,
+  "description": "Conception de solutions IA orientées impact social : reconnaissance vocale locale, arbres cliniques et détection d'anomalies.",
+  "icon": "lucide:brain",
+  "tags": [
+    "Modèles On-Device",
+    "Speech-to-Text",
+    "TTS",
+    "Triage Clinique",
+    "Détection d'Anomalies",
+    "Python"
+  ],
+  "featured": true,
+  "order": 3
+}

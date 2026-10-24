@@ -1,0 +1,134 @@
+---
+import { Icon } from 'astro-icon/components';
+import { PERSONAL_INFO } from '../utils/constants';
+
+interface Props {
+  ctaPrimary?: { label: string; href: string };
+  ctaSecondary?: { label: string; href: string };
+  socialLinks?: readonly Array<{ name: string; href: string; icon: string; label: string }>;
+}
+
+const { ctaPrimary, ctaSecondary, socialLinks } = Astro.props;
+
+const terminalLines = [
+  "[init] Initialisation de l'écosystème Tchuente Krys Handy (Yaoundé, CM)...",
+  "[mobile/ai] Chargement VoxIA v1.0 (Kotlin Natif) -> Moteur IA Offline actif [OK]",
+  "[security] Guardians AI (Flutter) -> Détection d'anomalies & SOS furtif armé [OK]",
+  "[web/rt] KitchenPulse (React + Node.js) -> WebSockets connectés, 0 incident [OK]",
+  "[network] Topologie Cisco IOS & Segmentation VLAN -> Filtrage étanche [OK]",
+  "[compliance] Normes OPSWAT CIP & Google Cybersecurity -> Validées [OK]",
+  "[status] ⚡ Système opérationnel — Prêt pour de nouveaux défis technologiques."
+];
+---
+<section id="accueil" class="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-mesh py-16 sm:py-24 lg:py-28">
+  <div class="absolute inset-0 bg-noise" aria-hidden="true" />
+  <div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" aria-hidden="true" />
+
+  <div class="container-premium relative z-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-primary/30 bg-surface/70 backdrop-blur-md mb-8 shadow-sm">
+        <span class="relative flex h-2.5 w-2.5">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+        </span>
+        <span class="text-caption font-semibold text-foreground tracking-wide">
+          {PERSONAL_INFO.availability}
+        </span>
+      </div>
+
+      <h1 class="text-display-xl font-display font-extrabold tracking-tight text-foreground mb-6">
+        <span class="block">{PERSONAL_INFO.fullName}</span>
+      </h1>
+
+      <p class="text-display-sm font-semibold text-gradient-primary mb-6 text-balance max-w-3xl mx-auto">
+        {PERSONAL_INFO.role}
+      </p>
+
+      <p class="text-body-lg text-muted-foreground/90 max-w-2xl mx-auto mb-10 text-pretty leading-relaxed">
+        {PERSONAL_INFO.bioShort}
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+        <a href="#realisations" class="btn-primary w-full sm:w-auto shadow-glow">
+          <Icon name="lucide:folder-kanban" class="w-4 h-4" aria-hidden="true" />
+          Explorer mes réalisations
+        </a>
+        <a href={PERSONAL_INFO.cvPath} download class="btn-secondary w-full sm:w-auto">
+          <Icon name="lucide:download" class="w-4 h-4 text-primary" aria-hidden="true" />
+          Télécharger mon CV (PDF)
+        </a>
+        <a href="#contact" class="btn-outline w-full sm:w-auto">
+          <Icon name="lucide:mail" class="w-4 h-4" aria-hidden="true" />
+          Me contacter
+        </a>
+      </div>
+
+      {socialLinks && (
+        <div class="flex items-center justify-center flex-wrap gap-3 sm:gap-4 mb-12" role="list" aria-label="Liens réseaux">
+          {socialLinks.map((social) => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              class="flex items-center gap-2 px-3.5 py-2 rounded-xl border border-border/50 bg-surface/60 text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-200 ease-smooth group shadow-xs"
+              role="listitem"
+            >
+              <Icon name={social.icon} class="w-4 h-4 transition-transform group-hover:scale-110" aria-hidden="true" />
+              <span class="text-caption font-semibold">{social.name}</span>
+            </a>
+          ))}
+        </div>
+      )}
+
+      <div class="flex flex-wrap items-center justify-center gap-2.5 text-caption text-muted-foreground">
+        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent font-medium">
+          <Icon name="lucide:trophy" class="w-3.5 h-3.5" aria-hidden="true" />
+          1er Prix Hackathon EEUEZ
+        </span>
+        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary font-medium">
+          <Icon name="lucide:globe" class="w-3.5 h-3.5" aria-hidden="true" />
+          Finaliste Africain GCD4F
+        </span>
+        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/60 bg-surface/60 font-medium">
+          <Icon name="lucide:cpu" class="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
+          IA Offline-First (VoxIA)
+        </span>
+        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/60 bg-surface/60 font-medium">
+          <Icon name="lucide:shield-check" class="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
+          Certifié OPSWAT CIP
+        </span>
+        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/60 bg-surface/60 font-medium">
+          <Icon name="lucide:graduation-cap" class="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
+          Keyce Informatique (Licence IA)
+        </span>
+      </div>
+    </div>
+
+    <!-- Terminal Interactif Signature -->
+    <div class="mt-14 max-w-3xl mx-auto relative">
+      <div class="rounded-2xl border border-border/50 bg-card/90 backdrop-blur-xl overflow-hidden shadow-2xl">
+        <div class="flex items-center justify-between px-4 py-3 border-b border-border/50 bg-surface-sunken/80">
+          <div class="flex items-center gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+          </div>
+          <span class="text-caption font-mono text-muted-foreground flex items-center gap-1.5">
+            <Icon name="lucide:terminal" class="w-3.5 h-3.5 text-primary" />
+            krys@keyce-lab: ~
+          </span>
+          <span class="text-micro font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">LIVE</span>
+        </div>
+        <div class="p-5 font-mono text-caption leading-relaxed overflow-x-auto text-foreground/90 space-y-1.5">
+          <div class="text-muted-foreground">$ ./launch_ecosystem.sh --profile=krys-handy</div>
+          {terminalLines.map((line, idx) => (
+            <div class={idx === terminalLines.length - 1 ? 'text-primary font-semibold' : 'text-muted-foreground/90'}>
+              {line}
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

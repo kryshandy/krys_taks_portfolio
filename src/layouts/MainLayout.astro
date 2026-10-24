@@ -1,0 +1,25 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { NAV_ITEMS } from '../utils/constants';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  noIndex?: boolean;
+}
+const { title, description, canonical, ogImage, noIndex, ...rest } = Astro.props;
+---
+<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} noIndex={noIndex} {...rest}>
+  <a href="#main-content" class="sr-only focus:not-sr-only fixed top-4 left-4 z-[1000] btn-primary">
+    Aller au contenu principal
+  </a>
+  <Header navItems={NAV_ITEMS} />
+  <main id="main-content" class="flex-1 pt-16">
+    <slot />
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,60 @@
+---
+import '../styles/global.css';
+import '@fontsource-variable/geist';
+import '@fontsource-variable/geist-mono';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  noIndex?: boolean;
+}
+const {
+  title = 'Tchuente Takodjou Krys Handy — Concepteur Logiciel & IA',
+  description = "Portfolio de Tchuente Takodjou Krys Handy. Concepteur logiciel, développeur full-stack & mobile, expert en IA offline-first, réseaux Cisco et cybersécurité à Yaoundé, Cameroun.",
+  canonical,
+  ogImage = '/favicon.svg',
+  noIndex
+} = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="author" content="Tchuente Takodjou Krys Handy" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <title>{title}</title>
+    {description && <meta name="description" content={description} />}
+    {canonical && <link rel="canonical" href={canonical} />}
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#030712" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  </head>
+  <body class="bg-background text-foreground antialiased min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary-foreground">
+    <slot />
+    <script is:inline>
+      (function() {
+        try {
+          var theme = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (theme === 'light') {
+            document.documentElement.classList.add('light');
+            document.documentElement.classList.remove('dark');
+          } else {
+            document.documentElement.classList.add('dark');
+            document.documentElement.classList.remove('light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </body>
+</html>

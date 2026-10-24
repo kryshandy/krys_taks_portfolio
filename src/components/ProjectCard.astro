@@ -1,0 +1,106 @@
+---
+import { Icon } from 'astro-icon/components';
+import { getProjectTypeColor, cn } from '../utils/helpers';
+import { PROJECT_TYPES } from '../utils/constants';
+
+const typeMap = Object.fromEntries(PROJECT_TYPES.map(t => [t.key, t]));
+
+interface Props {
+  project: any;
+  featured: boolean;
+}
+
+const { project, featured } = Astro.props;
+---
+<article class={cn('card-premium p-6 sm:p-7 flex flex-col h-full group', featured && 'card-premium-elevated border-primary/20 hover:border-primary/50')}>
+  <div class="flex items-start justify-between gap-3 mb-4">
+    <span class={cn('badge shrink-0', getProjectTypeColor(project.data.type))}>
+      <Icon name={typeMap[project.data.type]?.icon || 'lucide:code'} class="w-3.5 h-3.5" aria-hidden="true" />
+      {typeMap[project.data.type]?.label || project.data.type}
+    </span>
+    <div class="flex items-center gap-2">
+      {project.data.highlight && (
+        <span class="badge-accent shrink-0">
+          <Icon name="lucide:trophy" class="w-3 h-3" aria-hidden="true" />
+          Mise en avant
+        </span>
+      )}
+      <span class="text-caption font-mono text-muted-foreground">{project.data.year}</span>
+    </div>
+  </div>
+
+  <h4 class="text-heading-md font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+    {project.data.title}
+  </h4>
+  <p class="text-body-sm text-muted-foreground/90 mb-4 leading-relaxed flex-1">
+    {project.data.description}
+  </p>
+
+  {project.data.metrics && project.data.metrics.length > 0 && (
+    <div class="grid grid-cols-3 gap-2 py-3 px-3.5 rounded-xl bg-surface/60 border border-border/40 mb-4">
+      {project.data.metrics.slice(0, 3).map((m: any) => (
+        <div class="text-center">
+          <div class="text-caption font-bold text-primary">{m.value}</div>
+          <div class="text-micro text-muted-foreground truncate">{m.label}</div>
+        </div>
+      ))}
+    </div>
+  )}
+
+  <div class="flex flex-wrap gap-1.5 mb-5" aria-label="Technologies employées">
+    {project.data.stack.map((tech: string) => (
+      <span key={tech} class="px-2.5 py-1 rounded-lg border border-border/50 bg-surface/50 text-caption font-medium text-muted-foreground">
+        {tech}
+      </span>
+    ))}
+  </div>
+
+  <div class="mt-auto pt-4 border-t border-border/40 flex items-center justify-between gap-3">
+    <div class="flex items-center gap-2 text-caption text-muted-foreground">
+      {project.data.status === 'production' && (
+        <span class="flex items-center gap-1 text-emerald-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          Production
+        </span>
+      )}
+      {project.data.status === 'development' && (
+        <span class="flex items-center gap-1 text-amber-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          Actif
+        </span>
+      )}
+      {project.data.status === 'beta' && (
+        <span class="flex items-center gap-1 text-sky-400 font-medium">
+          <span class="w-2 h-2 rounded-full bg-sky-400"></span>
+          Beta
+        </span>
+      )}
+    </div>
+
+    <div class="flex items-center gap-2">
+      {project.data.repoUrl && (
+        <a
+          href={project.data.repoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-ghost text-caption px-3 py-1.5 flex items-center gap-1.5"
+          aria-label={'Code source de ' + project.data.title}
+        >
+          <Icon name="lucide:github" class="w-3.5 h-3.5" />
+          Code
+        </a>
+      )}
+      {project.data.demoUrl && (
+        <a
+          href={project.data.demoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary text-caption px-3 py-1.5 flex items-center gap-1.5"
+        >
+          <Icon name="lucide:external-link" class="w-3.5 h-3.5" />
+          Démo
+        </a>
+      )}
+    </div>
+  </div>
+</article>

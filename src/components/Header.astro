@@ -1,0 +1,102 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+import { Icon } from 'astro-icon/components';
+import { PERSONAL_INFO } from '../utils/constants';
+
+interface Props {
+  navItems: readonly Array<{ label: string; href: string }>;
+}
+const { navItems } = Astro.props;
+---
+<header class="fixed top-0 left-0 right-0 z-[100] glass-strong border-b border-border/50 backdrop-blur-xl">
+  <nav class="container-premium" aria-label="Navigation principale">
+    <div class="flex h-16 items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <a href="#accueil" class="flex items-center gap-2.5 text-foreground hover:opacity-90 transition-opacity group" aria-label="Accueil">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 border border-primary/30 flex items-center justify-center font-display font-extrabold text-heading-sm text-gradient-primary group-hover:border-primary transition-colors">
+            {PERSONAL_INFO.monogram}
+          </div>
+          <div class="flex flex-col">
+            <span class="font-display font-bold text-body-sm leading-tight text-foreground">{PERSONAL_INFO.displayName}</span>
+            <span class="text-micro font-medium text-muted-foreground hidden sm:inline">Génie Logiciel & IA</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="hidden lg:flex items-center gap-1">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="px-3 py-1.5 rounded-lg text-body-sm font-medium text-muted-foreground hover:text-foreground hover:bg-surface-elevated/60 transition-all duration-200 ease-smooth"
+          >
+            {item.label}
+          </a>
+        ))}
+      </div>
+
+      <div class="flex items-center gap-2.5">
+        <a
+          href={PERSONAL_INFO.cvPath}
+          download
+          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-primary/30 bg-primary/10 hover:bg-primary/20 text-primary text-caption font-semibold transition-all duration-200"
+          title="Télécharger mon CV (PDF)"
+        >
+          <Icon name="lucide:download" class="w-3.5 h-3.5" aria-hidden="true" />
+          <span>CV</span>
+        </a>
+
+        <ThemeToggle />
+
+        <button
+          class="lg:hidden p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-accent/5 transition-all"
+          aria-label="Ouvrir le menu"
+          data-mobile-menu-toggle
+        >
+          <Icon name="lucide:menu" class="w-5 h-5" />
+        </button>
+      </div>
+    </div>
+
+    <div class="lg:hidden overflow-hidden transition-all duration-300 ease-smooth h-0" data-mobile-menu>
+      <div class="py-4 space-y-1 border-t border-border/50">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="block px-3 py-2.5 rounded-xl text-body-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent/5 transition-all duration-200 ease-smooth"
+          >
+            {item.label}
+          </a>
+        ))}
+        <div class="pt-2">
+          <a
+            href={PERSONAL_INFO.cvPath}
+            download
+            class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-primary text-primary-foreground text-body-sm font-semibold shadow-md"
+          >
+            <Icon name="lucide:download" class="w-4 h-4" />
+            Télécharger mon CV (PDF)
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <script is:inline>
+    var toggle = document.querySelector('[data-mobile-menu-toggle]');
+    var menu = document.querySelector('[data-mobile-menu]');
+    if (toggle && menu) {
+      toggle.addEventListener('click', function() {
+        var isOpen = menu.classList.toggle('h-auto');
+        menu.classList.toggle('h-0');
+        toggle.setAttribute('aria-expanded', String(isOpen));
+      });
+      menu.querySelectorAll('a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          menu.classList.remove('h-auto');
+          menu.classList.add('h-0');
+          toggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  </script>
+</header>

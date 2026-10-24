@@ -1,0 +1,107 @@
+---
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import { formatDate } from '../utils/helpers';
+
+const activities = await getCollection('activities');
+const sortedActivities = activities.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+const typeIcons: Record<string, string> = {
+  commit: 'lucide:git-commit',
+  release: 'lucide:package',
+  article: 'lucide:file-text',
+  talk: 'lucide:mic',
+  milestone: 'lucide:flag',
+  learning: 'lucide:graduation-cap',
+  certification: 'lucide:award'
+};
+
+const typeLabels: Record<string, string> = {
+  commit: 'Commit',
+  release: 'Release',
+  article: 'Article',
+  talk: 'Prise de parole',
+  milestone: 'Étape majeure',
+  learning: 'Laboratoire',
+  certification: 'Certification'
+};
+---
+<section id="activite" class="section bg-surface/30">
+  <div class="container-premium">
+    <header class="max-w-3xl mx-auto text-center mb-16">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/50 bg-surface/50 text-caption font-medium text-muted-foreground mb-4">
+        <Icon name="lucide:activity" class="w-4 h-4 text-primary" aria-hidden="true" />
+        Journal d'Activité
+      </span>
+      <h2 class="text-display-md font-display font-bold tracking-tight text-foreground mb-4">
+        Veille, jalons techniques et distinctions
+      </h2>
+      <p class="text-body-lg text-muted-foreground/90">
+        Les dernières avancées sur mes projets, mes certifications validées et mes participations aux compétitions.
+      </p>
+    </header>
+
+    <div class="relative max-w-3xl mx-auto">
+      <div class="absolute left-6 sm:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-border to-transparent" aria-hidden="true" />
+
+      <dl class="space-y-8" role="list">
+        {sortedActivities.map((act) => (
+          <div class="relative flex gap-5 sm:gap-6 group" role="listitem">
+            <div class="relative flex-shrink-0 w-12 h-12 rounded-xl border border-border/50 bg-card flex items-center justify-center z-10 shadow-sm group-hover:border-primary transition-colors">
+              <Icon name={typeIcons[act.data.type] || 'lucide:circle'} class="w-5 h-5 text-primary" aria-hidden="true" />
+            </div>
+
+            <div class="flex-1 min-w-0 pt-1">
+              <div class="card-premium p-5 sm:p-6">
+                <div class="flex flex-wrap items-center gap-2.5 mb-2">
+                  <span class="badge-primary font-mono text-caption">
+                    <Icon name={typeIcons[act.data.type] || 'lucide:circle'} class="w-3 h-3" />
+                    {typeLabels[act.data.type] || act.data.type}
+                  </span>
+                  <time class="text-caption font-mono text-muted-foreground" dateTime={act.data.date}>
+                    {formatDate(act.data.date)}
+                  </time>
+                  {act.data.project && (
+                    <span class="badge text-caption font-medium">
+                      {act.data.project}
+                    </span>
+                  )}
+                </div>
+
+                <h3 class="text-heading-sm font-bold text-foreground mb-1.5">{act.data.title}</h3>
+                {act.data.description && (
+                  <p class="text-body-sm text-muted-foreground/90 leading-relaxed mb-3">{act.data.description}</p>
+                )}
+
+                {act.data.tags && (
+                  <div class="flex flex-wrap gap-1.5 pt-1">
+                    {act.data.tags.map((tag: string) => (
+                      <span class="text-micro font-mono px-2 py-0.5 rounded bg-surface border border-border/30 text-muted-foreground">
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                <div class="mt-3 flex items-center gap-3">
+                  {act.data.repo && (
+                    <a href={act.data.repo} target="_blank" rel="noopener noreferrer" class="btn-ghost text-caption px-3 py-1 flex items-center gap-1.5">
+                      <Icon name="lucide:github" class="w-3.5 h-3.5" />
+                      Voir le code
+                    </a>
+                  )}
+                  {act.data.url && (
+                    <a href={act.data.url} target="_blank" rel="noopener noreferrer" class="btn-ghost text-caption px-3 py-1 flex items-center gap-1.5 text-primary">
+                      <Icon name="lucide:external-link" class="w-3.5 h-3.5" />
+                      En savoir plus
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>

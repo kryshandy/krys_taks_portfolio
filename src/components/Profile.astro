@@ -1,0 +1,188 @@
+---
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import { PERSONAL_INFO } from '../utils/constants';
+
+const experience = await getCollection('experience');
+const currentExp = experience.filter(e => e.data.current);
+---
+<section id="profil" class="section bg-background">
+  <div class="container-premium">
+    <header class="max-w-3xl mx-auto text-center mb-16">
+      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/50 bg-surface/50 text-caption font-medium text-muted-foreground mb-4">
+        <Icon name="lucide:user" class="w-4 h-4 text-primary" aria-hidden="true" />
+        À Propos & Philosophie
+      </span>
+      <h2 class="text-display-md font-display font-bold tracking-tight text-foreground mb-4">
+        Bâtir des technologies concrètes qui protègent, émancipent et résolvent.
+      </h2>
+      <p class="text-body-lg text-muted-foreground/90 text-pretty">
+        Basé à Yaoundé, je conçois des systèmes logiciels pensés pour le terrain réel : là où les réseaux vacillent, là où l'inclusion fait la différence, et là où la sécurité ne tolère aucune faille.
+      </p>
+    </header>
+
+    <div class="grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2 space-y-8">
+        <div class="card-premium-elevated p-6 sm:p-8">
+          <div class="flex items-center gap-3 mb-6">
+            <div class="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
+              <Icon name="lucide:compass" class="w-6 h-6" />
+            </div>
+            <div>
+              <h3 class="text-heading-lg font-bold text-foreground">Mon Manifeste d'Ingénierie</h3>
+              <p class="text-body-sm text-primary font-medium">Autonomie, impact sociétal et rigueur technique</p>
+            </div>
+          </div>
+
+          <div class="space-y-4 text-body text-muted-foreground/90 leading-relaxed">
+            <p>
+              Je m'appelle <strong>{PERSONAL_INFO.fullName}</strong>. Mon parcours a débuté par la curiosité matérielle et la maintenance informatique en 2019, avant d'évoluer vers le développement logiciel, les architectures réseau Cisco, la cybersécurité et l'intelligence artificielle avancée à <strong>Keyce Informatique</strong>.
+            </p>
+            <p>
+              Contrairement à une approche purement spéculative de l'IA, je défends une <strong>intelligence artificielle utile, frugale et offline-first</strong>. C'est la raison pour laquelle j'ai conçu <strong>VoxIA</strong> : permettre à une personne malvoyante d'interagir avec son environnement et de naviguer sans dépendre d'une connexion internet instable ou coûteuse. C'est la même exigence qui anime <strong>Guardians AI</strong> pour la sécurité humaine, ou <strong>SanteCam</strong>, projet avec lequel nous avons décroché le <strong>1er Prix au Hackathon EEUEZ</strong>.
+            </p>
+            <p>
+              Je crois également fermement en la force de la jeunesse africaine comme moteur de la révolution technologique mondiale. Mon engagement s'exprime dans chaque ligne de code que j'écris, chaque architecture que je structure et chaque prise de parole civique pour stimuler l'audace et la citoyenneté active.
+            </p>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-border/40 grid sm:grid-cols-3 gap-4">
+            <div class="p-4 rounded-xl bg-surface/50 border border-border/40">
+              <div class="text-heading-md font-bold text-primary mb-1">100% Offline</div>
+              <p class="text-caption text-muted-foreground">Architectures IA autonomes sans dépendance cloud</p>
+            </div>
+            <div class="p-4 rounded-xl bg-surface/50 border border-border/40">
+              <div class="text-heading-md font-bold text-accent mb-1">1er Prix</div>
+              <p class="text-caption text-muted-foreground">Hackathon EEUEZ (Santé & Orientation d'urgence)</p>
+            </div>
+            <div class="p-4 rounded-xl bg-surface/50 border border-border/40">
+              <div class="text-heading-md font-bold text-emerald-400 mb-1">OPSWAT CIP</div>
+              <p class="text-caption text-muted-foreground">Protection certifiée des infrastructures critiques</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Piliers de compétences -->
+        <div class="grid sm:grid-cols-2 gap-4">
+          <div class="card-premium p-6">
+            <Icon name="lucide:heart-handshake" class="w-7 h-7 text-primary mb-3" />
+            <h4 class="text-heading-sm font-semibold text-foreground mb-2">Accessibilité & IA Embarquée</h4>
+            <p class="text-body-sm text-muted-foreground leading-relaxed">
+              Modèles de vision et NLP optimisés pour fonctionner localement sur mobile (Kotlin / Flutter) pour les personnes en situation de handicap.
+            </p>
+          </div>
+          <div class="card-premium p-6">
+            <Icon name="lucide:shield-alert" class="w-7 h-7 text-accent mb-3" />
+            <h4 class="text-heading-sm font-semibold text-foreground mb-2">Sécurité Civile & Prévention</h4>
+            <p class="text-body-sm text-muted-foreground leading-relaxed">
+              Détection précoce des situations à risque, protocoles SOS furtifs et géolocalisation résiliente pour protéger les personnes.
+            </p>
+          </div>
+          <div class="card-premium p-6">
+            <Icon name="lucide:activity" class="w-7 h-7 text-emerald-400 mb-3" />
+            <h4 class="text-heading-sm font-semibold text-foreground mb-2">Web Temps Réel & Systèmes</h4>
+            <p class="text-body-sm text-muted-foreground leading-relaxed">
+              Liaisons WebSockets réactives, interfaces restaurant (KitchenPulse), ERP multi-rôles et modélisation de bases de données relationnelles.
+            </p>
+          </div>
+          <div class="card-premium p-6">
+            <Icon name="lucide:network" class="w-7 h-7 text-sky-400 mb-3" />
+            <h4 class="text-heading-sm font-semibold text-foreground mb-2">Infrastructures Cisco & Cyber</h4>
+            <p class="text-body-sm text-muted-foreground leading-relaxed">
+              Configuration de switches et routeurs Cisco, segmentation VLAN étanche, analyse forensique Wireshark et respect des normes CIP.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aside Profil -->
+      <aside class="space-y-6">
+        <!-- Photo de profil -->
+        <div class="card-premium p-6 text-center">
+          <img
+            src="/images/profile.png"
+            alt={`${PERSONAL_INFO.displayName} - Photo de profil`}
+            class="w-32 h-32 mx-auto rounded-2xl border-2 border-primary/30 shadow-lg object-cover mb-4"
+          />
+          <h3 class="text-heading-md font-bold text-foreground mb-1">{PERSONAL_INFO.displayName}</h3>
+          <p class="text-body-sm text-primary font-medium mb-2">{PERSONAL_INFO.role}</p>
+          <p class="text-caption text-muted-foreground">{PERSONAL_INFO.location}</p>
+          <p class="text-caption text-muted-foreground mt-1">Disponible pour opportunités sur site, hybride ou remote</p>
+        </div>
+
+        <div class="card-premium p-6">
+          <h3 class="text-heading-sm font-semibold text-foreground mb-4 flex items-center gap-2">
+            <Icon name="lucide:map-pin" class="w-4 h-4 text-primary" />
+            Localisation
+          </h3>
+          <p class="text-body font-medium text-foreground">{PERSONAL_INFO.location}</p>
+          <p class="text-caption text-muted-foreground mt-1">Disponible pour opportunités sur site, hybride ou remote</p>
+        </div>
+
+        <div class="card-premium p-6">
+          <h3 class="text-heading-sm font-semibold text-foreground mb-4 flex items-center gap-2">
+            <Icon name="lucide:graduation-cap" class="w-4 h-4 text-primary" />
+            Cursus Universitaire
+          </h3>
+          <p class="text-body font-semibold text-foreground">Keyce Informatique</p>
+          <p class="text-body-sm text-primary font-medium">Licence Informatique & Intelligence Artificielle</p>
+          <p class="text-caption text-muted-foreground mt-1">2025 – Présent · Yaoundé</p>
+        </div>
+
+        <div class="card-premium p-6">
+          <h3 class="text-heading-sm font-semibold text-foreground mb-4 flex items-center gap-2">
+            <Icon name="lucide:award" class="w-4 h-4 text-primary" />
+            Certifications Clés
+          </h3>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2.5">
+              <Icon name="lucide:check-circle" class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <div>
+                <p class="text-body-sm font-medium text-foreground">OPSWAT Academy — CIP</p>
+                <p class="text-caption text-muted-foreground">Critical Infrastructure Protection (Terminé)</p>
+              </div>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <Icon name="lucide:clock" class="w-4 h-4 text-amber-400 shrink-0 mt-0.5" />
+              <div>
+                <p class="text-body-sm font-medium text-foreground">Google Cybersecurity</p>
+                <p class="text-caption text-muted-foreground">Programme Professionnel (En cours)</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="card-premium p-6">
+          <h3 class="text-heading-sm font-semibold text-foreground mb-4 flex items-center gap-2">
+            <Icon name="lucide:languages" class="w-4 h-4 text-primary" />
+            Langues
+          </h3>
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between">
+              <span class="text-body-sm font-medium text-foreground">Français</span>
+              <span class="text-caption font-mono text-primary font-semibold">Très bon niveau (Natif)</span>
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="text-body-sm font-medium text-foreground">Anglais</span>
+              <span class="text-caption font-mono text-muted-foreground">Bon niveau professionnel</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-premium p-6">
+          <h3 class="text-heading-sm font-semibold text-foreground mb-4 flex items-center gap-2">
+            <Icon name="lucide:sparkles" class="w-4 h-4 text-accent" />
+            Centres d'Intérêt
+          </h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="badge">Intelligence Artificielle</span>
+            <span class="badge">Cybersécurité & Réseaux</span>
+            <span class="badge">Échecs & Stratégie</span>
+            <span class="badge">Basketball</span>
+            <span class="badge">Entrepreneuriat</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

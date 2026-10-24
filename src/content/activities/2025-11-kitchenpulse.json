@@ -1,0 +1,14 @@
+{
+  "date": "2025-11-05",
+  "type": "release",
+  "title": "KitchenPulse — Synchronisation Temps Réel WebSockets",
+  "description": "Liaison directe multi-rôles entre bornes clients, serveurs, cuisine et dashboard admin avec vérification automatique des allergènes.",
+  "repo": "https://github.com/kryshandy/KitchenPulse",
+  "tags": [
+    "React",
+    "Node.js",
+    "WebSockets",
+    "Temps Réel"
+  ],
+  "project": "KitchenPulse"
+}
