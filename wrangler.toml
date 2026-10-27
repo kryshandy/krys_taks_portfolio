@@ -1,41 +1,7 @@
-# Portfolio Premium - Cédric Djiele
-# Configuration pour Cloudflare Pages
+# Portfolio Premium — Tchuente Takodjou Krys Handy
+# Configuration Cloudflare Pages (deploiement statique)
+# Les en-tetes HTTP sont definis dans public/_headers
 
 name = "portfolio-premium"
-compatibility_date = "2024-10-10"
+compatibility_date = "2025-01-01"
 pages_build_output_dir = "dist"
-
-[build]
-command = "npm run build"
-
-[build.environment]
-NODE_VERSION = "20"
-
-# Variables d'environnement (à configurer dans le dashboard Cloudflare Pages)
-# PUBLIC_SITE_URL = "https://votre-domaine.com"
-# PUBLIC_CONTACT_ENDPOINT = "https://api.votre-domaine.com/contact"
-
-# Headers personnalisés
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
-
-[[headers]]
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/fonts/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# Redirects (exemples)
-# [[redirects]]
-#   from = "/cv"
-#   to = "/CV_Cedric_Djiele.pdf"
-#   status = 302

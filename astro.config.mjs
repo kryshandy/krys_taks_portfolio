@@ -5,38 +5,28 @@ import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 
 export default defineConfig({
-  site: 'https://votre-domaine.com',
+  site: 'https://kryshandy.com',
   trailingSlash: 'always',
   integrations: [
     mdx(),
-    // sitemap({
-    //   filter: (page) => !page.includes('/admin/') && !page.endsWith('/rss.xml'),
-    // }),
+    sitemap({
+      filter: page => !page.endsWith('/rss.xml'),
+    }),
     tailwind({ applyBaseStyles: false }),
-    icon({ include: { lucide: ['*'] } })
+    icon({ include: { lucide: ['*'] } }),
   ],
   markdown: {
     shikiConfig: {
       theme: 'github-dark',
-      wrap: true
+      wrap: true,
     },
-    drafts: true
-  },
-  vite: {
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: 'modern-compiler'
-        }
-      }
-    }
   },
   prefetch: {
     prefetchAll: true,
-    defaultStrategy: 'viewport'
+    defaultStrategy: 'viewport',
   },
   compressHTML: true,
   build: {
-    inlineStylesheets: 'auto'
-  }
+    inlineStylesheets: 'auto',
+  },
 });
