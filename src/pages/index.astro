@@ -10,18 +10,15 @@ import Activity from '../components/Activity.astro';
 import Testimonials from '../components/Testimonials.astro';
 import Contact from '../components/Contact.astro';
 import GitHubStats from '../components/GitHubStats.astro';
-import { SOCIAL_LINKS, PERSONAL_INFO } from '../utils/constants';
+import { PERSONAL_INFO } from '../utils/constants';
 ---
+
 <MainLayout
-  title={PERSONAL_INFO.fullName + " — Concepteur Logiciel & IA"}
+  title={PERSONAL_INFO.fullName + ' — Concepteur Logiciel & IA'}
   description={PERSONAL_INFO.bioShort}
   canonical="https://kryshandy.com/"
 >
-  <Hero
-    ctaPrimary={{ label: "Voir mes réalisations", href: "#realisations" }}
-    ctaSecondary={{ label: "Me contacter", href: "#contact" }}
-    socialLinks={SOCIAL_LINKS}
-  />
+  <Hero />
   <Profile />
   <Projects />
   <Skills />

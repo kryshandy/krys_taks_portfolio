@@ -8,7 +8,7 @@ Construit avec **Astro 4**, **TypeScript**, **Tailwind CSS**, collections de don
 
 ## 🎯 Identité & Vision
 
-- **Bâtisseur de solutions à fort impact social** : IA d'assistance offline pour personnes malvoyantes (**VoxIA**), sécurité civile & prévention (**Guardians AI**), e-santé & triage clinique (**SanteCam** — *1er Prix Hackathon EEUEZ*).
+- **Bâtisseur de solutions à fort impact social** : IA d'assistance offline pour personnes malvoyantes (**VoxIA**), sécurité civile & prévention (**Guardians AI**), e-santé & triage clinique (**SanteCam** — _1er Prix Hackathon EEUEZ_).
 - **Architecture Offline-First & Résiliente** : Applications fonctionnant avec une latence quasi-nulle sans dépendre obligatoirement du cloud ou d'une connexion internet.
 - **Rigueur d'Ingénierie & Sécurité** : Certification **OPSWAT Academy CIP** (Critical Infrastructure Protection), segmentation réseau Cisco IOS et protocoles défensifs.
 - **Auto-mise à jour & Modularité** : Ajout de projets, compétences ou activités par simple création de fichiers Markdown/JSON ou via l'interface TinaCMS.
@@ -17,14 +17,14 @@ Construit avec **Astro 4**, **TypeScript**, **Tailwind CSS**, collections de don
 
 ## 🏗 Stack Technique
 
-| Couche | Technologie |
-|---|---|
-| **Générateur Statique** | Astro 4 (Content Collections typées Zod, zéro surcoût JS initial) |
-| **Design System** | Tailwind CSS (Dark/Light mode personnalisé, tokens ergonomiques, accessibilité) |
-| **Icônes** | Astro Icon + Lucide Icons |
-| **Typographie** | Geist Sans & Geist Mono Variable |
-| **Gestion de Contenu** | Markdown + JSON + TinaCMS (`/admin`) |
-| **Déploiement cible** | Cloudflare Pages / Vercel / GitHub Pages (statique ultra-rapide) |
+| Couche                  | Technologie                                                                     |
+| ----------------------- | ------------------------------------------------------------------------------- |
+| **Générateur Statique** | Astro 4 (Content Collections typées Zod, zéro surcoût JS initial)               |
+| **Design System**       | Tailwind CSS (Dark/Light mode personnalisé, tokens ergonomiques, accessibilité) |
+| **Icônes**              | Astro Icon + Lucide Icons                                                       |
+| **Typographie**         | Geist Sans & Geist Mono Variable                                                |
+| **Gestion de Contenu**  | Markdown + JSON + TinaCMS (`/admin`)                                            |
+| **Déploiement cible**   | Cloudflare Pages / Vercel / GitHub Pages (statique ultra-rapide)                |
 
 ---
 
@@ -77,6 +77,7 @@ public/
 ## 📘 Guide de Maintenance
 
 Consultez **`GUIDE_MISE_A_JOUR.md`** à la racine pour apprendre en 2 minutes à :
+
 1. Ajouter un nouveau projet
 2. Ajouter une compétence ou une certification
 3. Mettre à jour votre CV

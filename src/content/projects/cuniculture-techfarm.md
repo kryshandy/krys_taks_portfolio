@@ -1,28 +1,28 @@
 ---
-title: "Cuniculture TechFarm — Suivi Numérique Agri-Tech & Valorisation"
-shortTitle: "Cuniculture TechFarm"
-type: "consulting"
-status: "beta"
-role: "founder"
+title: 'Cuniculture TechFarm — Suivi Numérique Agri-Tech & Valorisation'
+shortTitle: 'Cuniculture TechFarm'
+type: 'consulting'
+status: 'beta'
+role: 'founder'
 year: 2025
-startDate: "2024-08"
-stack: ["Web Moderne", "Analytics", "VBA Excel", "Communication Digitale"]
-description: "Projet entrepreneurial agri-tech combinant outils de pilotage numérique des exploitations cunicoles et stratégie de valorisation locale."
-problem: "Difficulté pour les éleveurs locaux de suivre la rentabilité, les cycles de reproduction et la prophylaxie avec des méthodes manuelles peu fiables."
-solution: "Mise en place de tableaux de bord analytiques automatisés, suivi des indicateurs zootechniques et canaux de distribution digitale directe."
+startDate: '2024-08'
+stack: ['Web Moderne', 'Analytics', 'VBA Excel', 'Communication Digitale']
+description: 'Projet entrepreneurial agri-tech combinant outils de pilotage numérique des exploitations cunicoles et stratégie de valorisation locale.'
+problem: 'Difficulté pour les éleveurs locaux de suivre la rentabilité, les cycles de reproduction et la prophylaxie avec des méthodes manuelles peu fiables.'
+solution: 'Mise en place de tableaux de bord analytiques automatisés, suivi des indicateurs zootechniques et canaux de distribution digitale directe.'
 impact: "Amélioration de 25% de la gestion du cheptel, meilleure traçabilité sanitaire, promotion de l'autosuffisance alimentaire."
 metrics:
-  - label: "Gestion des cheptels"
-    value: "Optimisée +25%"
-  - label: "Secteur"
-    value: "Agri-Tech"
-  - label: "Impact"
-    value: "Souveraineté"
+  - label: 'Gestion des cheptels'
+    value: 'Optimisée +25%'
+  - label: 'Secteur'
+    value: 'Agri-Tech'
+  - label: 'Impact'
+    value: 'Souveraineté'
 featured: false
 highlight: false
-client: "Initiative Entrepreneuriale"
+client: 'Initiative Entrepreneuriale'
 teamSize: 2
-duration: "En continu"
+duration: 'En continu'
 order: 8
 ---
 

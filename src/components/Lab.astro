@@ -1,62 +1,75 @@
 ---
 import { Icon } from 'astro-icon/components';
 ---
+
 <section id="lab" class="section bg-background">
   <div class="container-premium">
-    <header class="max-w-3xl mx-auto text-center mb-16">
-      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/50 bg-surface/50 text-caption font-medium text-muted-foreground mb-4">
-        <Icon name="lucide:flask-conical" class="w-4 h-4 text-primary" aria-hidden="true" />
+    <header class="mx-auto mb-16 max-w-3xl text-center">
+      <span
+        class="mb-4 inline-flex items-center gap-2 rounded-full border border-border/50 bg-surface/50 px-3 py-1 text-caption font-medium text-muted-foreground"
+      >
+        <Icon name="lucide:flask-conical" class="h-4 w-4 text-primary" aria-hidden="true" />
         Lab Expérimental Interactif
       </span>
-      <h2 class="text-display-md font-display font-bold tracking-tight text-foreground mb-4">
+      <h2 class="mb-4 font-display text-display-md font-bold tracking-tight text-foreground">
         Simulation de Maillage Résilient & Routage d'Urgence
       </h2>
       <p class="text-body-lg text-muted-foreground/90">
-        Illustration interactive de l'architecture offline-first utilisée dans VoxIA et Guardians AI.
-        Clique sur un nœud pour simuler une coupure de connexion : l'algorithme (Dijkstra) recalcule instantanément une route de contournement pour délivrer le paquet d'alerte.
+        Illustration interactive de l'architecture offline-first utilisée dans VoxIA et Guardians
+        AI. Clique sur un nœud pour simuler une coupure de connexion : l'algorithme (Dijkstra)
+        recalcule instantanément une route de contournement pour délivrer le paquet d'alerte.
       </p>
     </header>
 
-    <div class="card-premium-elevated rounded-3xl overflow-hidden max-w-5xl mx-auto">
-      <div class="p-6 sm:p-7 border-b border-border/40 bg-surface/40">
-        <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
-          <h3 class="text-heading-md font-bold text-foreground flex items-center gap-2">
-            <Icon name="lucide:network" class="w-5 h-5 text-primary" />
+    <div class="card-premium-elevated mx-auto max-w-5xl overflow-hidden rounded-3xl">
+      <div class="border-b border-border/40 bg-surface/40 p-6 sm:p-7">
+        <div class="mb-2 flex flex-wrap items-center justify-between gap-4">
+          <h3 class="flex items-center gap-2 text-heading-md font-bold text-foreground">
+            <Icon name="lucide:network" class="h-5 w-5 text-primary" />
             Topologie de Réseau Mesh Autonome
           </h3>
-          <div class="flex flex-wrap items-center gap-4 text-caption font-mono">
+          <div class="flex flex-wrap items-center gap-4 font-mono text-caption">
             <span class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
               <span id="lab-active-nodes">8</span>/8 nœuds en ligne
             </span>
             <span class="flex items-center gap-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-primary"></span>
+              <span class="h-2.5 w-2.5 rounded-full bg-primary"></span>
               <span id="lab-routed-count">0</span> paquets d'urgence acheminés
             </span>
           </div>
         </div>
         <p class="text-body-sm text-muted-foreground">
-          Clique sur un nœud pour simuler une panne réseau · Glisse un nœud pour tester l'adaptation physique en direct.
+          Clique sur un nœud pour simuler une panne réseau · Glisse un nœud pour tester l'adaptation
+          physique en direct.
         </p>
       </div>
 
       <div class="relative h-[480px] bg-surface-sunken/90" id="mesh-canvas-container">
-        <canvas id="mesh-simulation" class="w-full h-full block cursor-default"></canvas>
+        <canvas id="mesh-simulation" class="block h-full w-full cursor-default"></canvas>
       </div>
 
-      <div class="p-4 sm:p-6 border-t border-border/40 bg-surface/50 flex flex-wrap items-center justify-between gap-4">
+      <div
+        class="flex flex-wrap items-center justify-between gap-4 border-t border-border/40 bg-surface/50 p-4 sm:p-6"
+      >
         <div class="flex items-center gap-3">
-          <button id="mesh-reset-btn" class="btn-primary text-caption py-2 px-4 flex items-center gap-1.5">
-            <Icon name="lucide:rotate-ccw" class="w-4 h-4" />
+          <button
+            id="mesh-reset-btn"
+            class="btn-primary flex items-center gap-1.5 px-4 py-2 text-caption"
+          >
+            <Icon name="lucide:rotate-ccw" class="h-4 w-4" />
             Rétablir tous les nœuds
           </button>
-          <button id="mesh-fail-btn" class="btn-outline text-caption py-2 px-4 flex items-center gap-1.5">
-            <Icon name="lucide:alert-triangle" class="w-4 h-4 text-amber-400" />
+          <button
+            id="mesh-fail-btn"
+            class="btn-outline flex items-center gap-1.5 px-4 py-2 text-caption"
+          >
+            <Icon name="lucide:alert-triangle" class="h-4 w-4 text-amber-400" />
             Simuler coupure aléatoire
           </button>
         </div>
-        <div class="text-caption font-mono text-muted-foreground flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+        <div class="flex items-center gap-2 font-mono text-caption text-muted-foreground">
+          <span class="h-2 w-2 animate-ping rounded-full bg-primary"></span>
           Algorithme Dijkstra actif · Latence de recalcul &lt; 2ms
         </div>
       </div>
@@ -65,312 +78,396 @@ import { Icon } from 'astro-icon/components';
 </section>
 
 <script is:inline>
-(function() {
-  var canvas = document.getElementById('mesh-simulation');
-  if (!canvas) return;
-  var ctx = canvas.getContext('2d');
-  var activeNodesEl = document.getElementById('lab-active-nodes');
-  var routedCountEl = document.getElementById('lab-routed-count');
-  var resetBtn = document.getElementById('mesh-reset-btn');
-  var failBtn = document.getElementById('mesh-fail-btn');
+  (function () {
+    var canvas = document.getElementById('mesh-simulation');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    var activeNodesEl = document.getElementById('lab-active-nodes');
+    var routedCountEl = document.getElementById('lab-routed-count');
+    var resetBtn = document.getElementById('mesh-reset-btn');
+    var failBtn = document.getElementById('mesh-fail-btn');
 
-  var width = 0;
-  var height = 0;
-  var dpr = window.devicePixelRatio || 1;
-  var nodes = [];
-  var links = [];
-  var packets = [];
-  var routedCount = 0;
-  var draggedNode = null;
+    var width = 0;
+    var height = 0;
+    var dpr = window.devicePixelRatio || 1;
+    var nodes = [];
+    var links = [];
+    var packets = [];
+    var routedCount = 0;
+    var draggedNode = null;
 
-  function resize() {
-    var rect = canvas.parentElement.getBoundingClientRect();
-    width = rect.width;
-    height = rect.height;
-    canvas.width = width * dpr;
-    canvas.height = height * dpr;
-    ctx.scale(dpr, dpr);
-    if (nodes.length === 0) {
-      initNodes();
-    }
-  }
-
-  function initNodes() {
-    nodes = [
-      { id: 0, x: width * 0.12, y: height * 0.5, vx: 0, vy: 0, radius: 24, label: 'Émetteur SOS', type: 'source', active: true },
-      { id: 1, x: width * 0.32, y: height * 0.25, vx: 0, vy: 0, radius: 20, label: 'Relais Nord', type: 'mesh', active: true },
-      { id: 2, x: width * 0.35, y: height * 0.55, vx: 0, vy: 0, radius: 20, label: 'Borne Radio', type: 'mesh', active: true },
-      { id: 3, x: width * 0.30, y: height * 0.80, vx: 0, vy: 0, radius: 20, label: 'Relais Sud', type: 'mesh', active: true },
-      { id: 4, x: width * 0.60, y: height * 0.22, vx: 0, vy: 0, radius: 20, label: 'Passerelle A', type: 'mesh', active: true },
-      { id: 5, x: width * 0.62, y: height * 0.52, vx: 0, vy: 0, radius: 20, label: 'Routeur Mesh', type: 'mesh', active: true },
-      { id: 6, x: width * 0.60, y: height * 0.82, vx: 0, vy: 0, radius: 20, label: 'Passerelle B', type: 'mesh', active: true },
-      { id: 7, x: width * 0.88, y: height * 0.5, vx: 0, vy: 0, radius: 24, label: 'Secours / Hôpital', type: 'dest', active: true }
-    ];
-
-    links = [
-      { u: 0, v: 1, cost: 10 },
-      { u: 0, v: 2, cost: 8 },
-      { u: 0, v: 3, cost: 12 },
-      { u: 1, v: 4, cost: 15 },
-      { u: 2, v: 4, cost: 10 },
-      { u: 2, v: 5, cost: 7 },
-      { u: 2, v: 6, cost: 12 },
-      { u: 3, v: 6, cost: 9 },
-      { u: 4, v: 7, cost: 11 },
-      { u: 5, v: 7, cost: 8 },
-      { u: 6, v: 7, cost: 10 },
-      { u: 1, v: 2, cost: 6 },
-      { u: 2, v: 3, cost: 6 },
-      { u: 4, v: 5, cost: 7 },
-      { u: 5, v: 6, cost: 7 }
-    ];
-    updateStats();
-  }
-
-  function findShortestPath(startId, endId) {
-    var dist = {};
-    var prev = {};
-    var unvisited = [];
-
-    for (var i = 0; i < nodes.length; i++) {
-      var n = nodes[i];
-      if (n.active) {
-        dist[n.id] = Infinity;
-        prev[n.id] = null;
-        unvisited.push(n.id);
+    function resize() {
+      var rect = canvas.parentElement.getBoundingClientRect();
+      width = rect.width;
+      height = rect.height;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      ctx.scale(dpr, dpr);
+      if (nodes.length === 0) {
+        initNodes();
       }
     }
-    dist[startId] = 0;
 
-    while (unvisited.length > 0) {
-      unvisited.sort(function(a, b) { return dist[a] - dist[b]; });
-      var curr = unvisited.shift();
-      if (dist[curr] === Infinity || curr === endId) break;
+    function initNodes() {
+      nodes = [
+        {
+          id: 0,
+          x: width * 0.12,
+          y: height * 0.5,
+          vx: 0,
+          vy: 0,
+          radius: 24,
+          label: 'Émetteur SOS',
+          type: 'source',
+          active: true,
+        },
+        {
+          id: 1,
+          x: width * 0.32,
+          y: height * 0.25,
+          vx: 0,
+          vy: 0,
+          radius: 20,
+          label: 'Relais Nord',
+          type: 'mesh',
+          active: true,
+        },
+        {
+          id: 2,
+          x: width * 0.35,
+          y: height * 0.55,
+          vx: 0,
+          vy: 0,
+          radius: 20,
+          label: 'Borne Radio',
+          type: 'mesh',
+          active: true,
+        },
+        {
+          id: 3,
+          x: width * 0.3,
+          y: height * 0.8,
+          vx: 0,
+          vy: 0,
+          radius: 20,
+          label: 'Relais Sud',
+          type: 'mesh',
+          active: true,
+        },
+        {
+          id: 4,
+          x: width * 0.6,
+          y: height * 0.22,
+          vx: 0,
+          vy: 0,
+          radius: 20,
+          label: 'Passerelle A',
+          type: 'mesh',
+          active: true,
+        },
+        {
+          id: 5,
+          x: width * 0.62,
+          y: height * 0.52,
+          vx: 0,
+          vy: 0,
+          radius: 20,
+          label: 'Routeur Mesh',
+          type: 'mesh',
+          active: true,
+        },
+        {
+          id: 6,
+          x: width * 0.6,
+          y: height * 0.82,
+          vx: 0,
+          vy: 0,
+          radius: 20,
+          label: 'Passerelle B',
+          type: 'mesh',
+          active: true,
+        },
+        {
+          id: 7,
+          x: width * 0.88,
+          y: height * 0.5,
+          vx: 0,
+          vy: 0,
+          radius: 24,
+          label: 'Secours / Hôpital',
+          type: 'dest',
+          active: true,
+        },
+      ];
 
-      for (var j = 0; j < links.length; j++) {
-        var l = links[j];
-        var neighbor = null;
-        if (l.u === curr && nodes[l.v].active) neighbor = l.v;
-        else if (l.v === curr && nodes[l.u].active) neighbor = l.u;
+      links = [
+        { u: 0, v: 1, cost: 10 },
+        { u: 0, v: 2, cost: 8 },
+        { u: 0, v: 3, cost: 12 },
+        { u: 1, v: 4, cost: 15 },
+        { u: 2, v: 4, cost: 10 },
+        { u: 2, v: 5, cost: 7 },
+        { u: 2, v: 6, cost: 12 },
+        { u: 3, v: 6, cost: 9 },
+        { u: 4, v: 7, cost: 11 },
+        { u: 5, v: 7, cost: 8 },
+        { u: 6, v: 7, cost: 10 },
+        { u: 1, v: 2, cost: 6 },
+        { u: 2, v: 3, cost: 6 },
+        { u: 4, v: 5, cost: 7 },
+        { u: 5, v: 6, cost: 7 },
+      ];
+      updateStats();
+    }
 
-        if (neighbor !== null && unvisited.indexOf(neighbor) !== -1) {
-          var alt = dist[curr] + l.cost;
-          if (alt < dist[neighbor]) {
-            dist[neighbor] = alt;
-            prev[neighbor] = curr;
+    function findShortestPath(startId, endId) {
+      var dist = {};
+      var prev = {};
+      var unvisited = [];
+
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        if (n.active) {
+          dist[n.id] = Infinity;
+          prev[n.id] = null;
+          unvisited.push(n.id);
+        }
+      }
+      dist[startId] = 0;
+
+      while (unvisited.length > 0) {
+        unvisited.sort(function (a, b) {
+          return dist[a] - dist[b];
+        });
+        var curr = unvisited.shift();
+        if (dist[curr] === Infinity || curr === endId) break;
+
+        for (var j = 0; j < links.length; j++) {
+          var l = links[j];
+          var neighbor = null;
+          if (l.u === curr && nodes[l.v].active) neighbor = l.v;
+          else if (l.v === curr && nodes[l.u].active) neighbor = l.u;
+
+          if (neighbor !== null && unvisited.indexOf(neighbor) !== -1) {
+            var alt = dist[curr] + l.cost;
+            if (alt < dist[neighbor]) {
+              dist[neighbor] = alt;
+              prev[neighbor] = curr;
+            }
           }
+        }
+      }
+
+      if (dist[endId] === Infinity) return null;
+      var path = [];
+      var step = endId;
+      while (step !== null) {
+        path.unshift(step);
+        step = prev[step];
+      }
+      return path;
+    }
+
+    function spawnPacket() {
+      var path = findShortestPath(0, 7);
+      if (path && path.length > 1) {
+        packets.push({
+          path: path,
+          progress: 0,
+          speed: 0.008 + Math.random() * 0.004,
+        });
+      }
+      setTimeout(spawnPacket, 600 + Math.random() * 800);
+    }
+
+    function update() {
+      // Animate packets
+      for (var i = packets.length - 1; i >= 0; i--) {
+        var p = packets[i];
+        p.progress += p.speed;
+        if (p.progress >= 1) {
+          packets.splice(i, 1);
+          routedCount++;
+          if (routedCountEl) routedCountEl.textContent = String(routedCount);
+        }
+      }
+
+      draw();
+      requestAnimationFrame(update);
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, width, height);
+
+      // Draw links
+      for (var i = 0; i < links.length; i++) {
+        var l = links[i];
+        var n1 = nodes[l.u];
+        var n2 = nodes[l.v];
+        var isLinkActive = n1.active && n2.active;
+
+        ctx.beginPath();
+        ctx.moveTo(n1.x, n1.y);
+        ctx.lineTo(n2.x, n2.y);
+        ctx.strokeStyle = isLinkActive ? 'rgba(6, 182, 212, 0.25)' : 'rgba(239, 68, 68, 0.15)';
+        ctx.lineWidth = isLinkActive ? 2 : 1;
+        if (!isLinkActive) {
+          ctx.setLineDash([4, 4]);
+        } else {
+          ctx.setLineDash([]);
+        }
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      // Draw packets
+      for (var j = 0; j < packets.length; j++) {
+        var pkt = packets[j];
+        var segments = pkt.path.length - 1;
+        var curSeg = Math.min(Math.floor(pkt.progress * segments), segments - 1);
+        var segProgress = pkt.progress * segments - curSeg;
+
+        var nodeA = nodes[pkt.path[curSeg]];
+        var nodeB = nodes[pkt.path[curSeg + 1]];
+        if (nodeA && nodeB) {
+          var px = nodeA.x + (nodeB.x - nodeA.x) * segProgress;
+          var py = nodeA.y + (nodeB.y - nodeA.y) * segProgress;
+
+          ctx.beginPath();
+          ctx.arc(px, py, 5, 0, Math.PI * 2);
+          ctx.fillStyle = '#06b6d4';
+          ctx.shadowColor = '#06b6d4';
+          ctx.shadowBlur = 8;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+      }
+
+      // Draw nodes
+      for (var k = 0; k < nodes.length; k++) {
+        var n = nodes[k];
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
+
+        if (!n.active) {
+          ctx.fillStyle = 'rgba(239, 68, 68, 0.15)';
+          ctx.strokeStyle = '#ef4444';
+        } else if (n.type === 'source') {
+          ctx.fillStyle = 'rgba(16, 185, 129, 0.25)';
+          ctx.strokeStyle = '#10b981';
+        } else if (n.type === 'dest') {
+          ctx.fillStyle = 'rgba(245, 158, 11, 0.25)';
+          ctx.strokeStyle = '#f59e0b';
+        } else {
+          ctx.fillStyle = 'rgba(6, 182, 212, 0.15)';
+          ctx.strokeStyle = '#06b6d4';
+        }
+
+        ctx.lineWidth = 2;
+        ctx.fill();
+        ctx.stroke();
+
+        // Node label
+        ctx.font = '600 11px system-ui, sans-serif';
+        ctx.fillStyle = n.active ? '#f3f4f6' : '#ef4444';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(n.label, n.x, n.y);
+
+        if (!n.active) {
+          ctx.strokeStyle = '#ef4444';
+          ctx.lineWidth = 2.5;
+          ctx.beginPath();
+          ctx.moveTo(n.x - 8, n.y - 8);
+          ctx.lineTo(n.x + 8, n.y + 8);
+          ctx.moveTo(n.x + 8, n.y - 8);
+          ctx.lineTo(n.x - 8, n.y + 8);
+          ctx.stroke();
         }
       }
     }
 
-    if (dist[endId] === Infinity) return null;
-    var path = [];
-    var step = endId;
-    while (step !== null) {
-      path.unshift(step);
-      step = prev[step];
-    }
-    return path;
-  }
-
-  function spawnPacket() {
-    var path = findShortestPath(0, 7);
-    if (path && path.length > 1) {
-      packets.push({
-        path: path,
-        progress: 0,
-        speed: 0.008 + Math.random() * 0.004
-      });
-    }
-    setTimeout(spawnPacket, 600 + Math.random() * 800);
-  }
-
-  function update() {
-    // Animate packets
-    for (var i = packets.length - 1; i >= 0; i--) {
-      var p = packets[i];
-      p.progress += p.speed;
-      if (p.progress >= 1) {
-        packets.splice(i, 1);
-        routedCount++;
-        if (routedCountEl) routedCountEl.textContent = String(routedCount);
-      }
-    }
-
-    draw();
-    requestAnimationFrame(update);
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, width, height);
-
-    // Draw links
-    for (var i = 0; i < links.length; i++) {
-      var l = links[i];
-      var n1 = nodes[l.u];
-      var n2 = nodes[l.v];
-      var isLinkActive = n1.active && n2.active;
-
-      ctx.beginPath();
-      ctx.moveTo(n1.x, n1.y);
-      ctx.lineTo(n2.x, n2.y);
-      ctx.strokeStyle = isLinkActive ? 'rgba(6, 182, 212, 0.25)' : 'rgba(239, 68, 68, 0.15)';
-      ctx.lineWidth = isLinkActive ? 2 : 1;
-      if (!isLinkActive) {
-        ctx.setLineDash([4, 4]);
-      } else {
-        ctx.setLineDash([]);
-      }
-      ctx.stroke();
-      ctx.setLineDash([]);
-    }
-
-    // Draw packets
-    for (var j = 0; j < packets.length; j++) {
-      var pkt = packets[j];
-      var segments = pkt.path.length - 1;
-      var curSeg = Math.min(Math.floor(pkt.progress * segments), segments - 1);
-      var segProgress = (pkt.progress * segments) - curSeg;
-
-      var nodeA = nodes[pkt.path[curSeg]];
-      var nodeB = nodes[pkt.path[curSeg + 1]];
-      if (nodeA && nodeB) {
-        var px = nodeA.x + (nodeB.x - nodeA.x) * segProgress;
-        var py = nodeA.y + (nodeB.y - nodeA.y) * segProgress;
-
-        ctx.beginPath();
-        ctx.arc(px, py, 5, 0, Math.PI * 2);
-        ctx.fillStyle = '#06b6d4';
-        ctx.shadowColor = '#06b6d4';
-        ctx.shadowBlur = 8;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      }
-    }
-
-    // Draw nodes
-    for (var k = 0; k < nodes.length; k++) {
-      var n = nodes[k];
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.radius, 0, Math.PI * 2);
-
-      if (!n.active) {
-        ctx.fillStyle = 'rgba(239, 68, 68, 0.15)';
-        ctx.strokeStyle = '#ef4444';
-      } else if (n.type === 'source') {
-        ctx.fillStyle = 'rgba(16, 185, 129, 0.25)';
-        ctx.strokeStyle = '#10b981';
-      } else if (n.type === 'dest') {
-        ctx.fillStyle = 'rgba(245, 158, 11, 0.25)';
-        ctx.strokeStyle = '#f59e0b';
-      } else {
-        ctx.fillStyle = 'rgba(6, 182, 212, 0.15)';
-        ctx.strokeStyle = '#06b6d4';
-      }
-
-      ctx.lineWidth = 2;
-      ctx.fill();
-      ctx.stroke();
-
-      // Node label
-      ctx.font = '600 11px system-ui, sans-serif';
-      ctx.fillStyle = n.active ? '#f3f4f6' : '#ef4444';
-      ctx.textAlign = 'center';
-      ctx.textBaseline = 'middle';
-      ctx.fillText(n.label, n.x, n.y);
-
-      if (!n.active) {
-        ctx.strokeStyle = '#ef4444';
-        ctx.lineWidth = 2.5;
-        ctx.beginPath();
-        ctx.moveTo(n.x - 8, n.y - 8);
-        ctx.lineTo(n.x + 8, n.y + 8);
-        ctx.moveTo(n.x + 8, n.y - 8);
-        ctx.lineTo(n.x - 8, n.y + 8);
-        ctx.stroke();
-      }
-    }
-  }
-
-  function updateStats() {
-    var activeCount = 0;
-    for (var i = 0; i < nodes.length; i++) {
-      if (nodes[i].active) activeCount++;
-    }
-    if (activeNodesEl) activeNodesEl.textContent = String(activeCount);
-  }
-
-  function getNodeAt(x, y) {
-    for (var i = 0; i < nodes.length; i++) {
-      var n = nodes[i];
-      var dx = n.x - x;
-      var dy = n.y - y;
-      if (dx * dx + dy * dy <= n.radius * n.radius) {
-        return n;
-      }
-    }
-    return null;
-  }
-
-  canvas.addEventListener('click', function(e) {
-    var rect = canvas.getBoundingClientRect();
-    var x = e.clientX - rect.left;
-    var y = e.clientY - rect.top;
-    var node = getNodeAt(x, y);
-    if (node && node.type === 'mesh') {
-      node.active = !node.active;
-      updateStats();
-    }
-  });
-
-  canvas.addEventListener('mousedown', function(e) {
-    var rect = canvas.getBoundingClientRect();
-    var x = e.clientX - rect.left;
-    var y = e.clientY - rect.top;
-    var node = getNodeAt(x, y);
-    if (node) {
-      draggedNode = node;
-      canvas.style.cursor = 'grabbing';
-    }
-  });
-
-  window.addEventListener('mousemove', function(e) {
-    if (!draggedNode) return;
-    var rect = canvas.getBoundingClientRect();
-    var x = e.clientX - rect.left;
-    var y = e.clientY - rect.top;
-    draggedNode.x = Math.max(draggedNode.radius, Math.min(width - draggedNode.radius, x));
-    draggedNode.y = Math.max(draggedNode.radius, Math.min(height - draggedNode.radius, y));
-  });
-
-  window.addEventListener('mouseup', function() {
-    draggedNode = null;
-    canvas.style.cursor = 'default';
-  });
-
-  if (resetBtn) {
-    resetBtn.addEventListener('click', function() {
+    function updateStats() {
+      var activeCount = 0;
       for (var i = 0; i < nodes.length; i++) {
-        nodes[i].active = true;
+        if (nodes[i].active) activeCount++;
       }
-      updateStats();
-    });
-  }
+      if (activeNodesEl) activeNodesEl.textContent = String(activeCount);
+    }
 
-  if (failBtn) {
-    failBtn.addEventListener('click', function() {
-      var meshNodes = nodes.filter(function(n) { return n.type === 'mesh'; });
-      var target = meshNodes[Math.floor(Math.random() * meshNodes.length)];
-      if (target) {
-        target.active = !target.active;
+    function getNodeAt(x, y) {
+      for (var i = 0; i < nodes.length; i++) {
+        var n = nodes[i];
+        var dx = n.x - x;
+        var dy = n.y - y;
+        if (dx * dx + dy * dy <= n.radius * n.radius) {
+          return n;
+        }
+      }
+      return null;
+    }
+
+    canvas.addEventListener('click', function (e) {
+      var rect = canvas.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      var node = getNodeAt(x, y);
+      if (node && node.type === 'mesh') {
+        node.active = !node.active;
         updateStats();
       }
     });
-  }
 
-  window.addEventListener('resize', resize);
-  resize();
-  spawnPacket();
-  update();
-})();
+    canvas.addEventListener('mousedown', function (e) {
+      var rect = canvas.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      var node = getNodeAt(x, y);
+      if (node) {
+        draggedNode = node;
+        canvas.style.cursor = 'grabbing';
+      }
+    });
+
+    window.addEventListener('mousemove', function (e) {
+      if (!draggedNode) return;
+      var rect = canvas.getBoundingClientRect();
+      var x = e.clientX - rect.left;
+      var y = e.clientY - rect.top;
+      draggedNode.x = Math.max(draggedNode.radius, Math.min(width - draggedNode.radius, x));
+      draggedNode.y = Math.max(draggedNode.radius, Math.min(height - draggedNode.radius, y));
+    });
+
+    window.addEventListener('mouseup', function () {
+      draggedNode = null;
+      canvas.style.cursor = 'default';
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function () {
+        for (var i = 0; i < nodes.length; i++) {
+          nodes[i].active = true;
+        }
+        updateStats();
+      });
+    }
+
+    if (failBtn) {
+      failBtn.addEventListener('click', function () {
+        var meshNodes = nodes.filter(function (n) {
+          return n.type === 'mesh';
+        });
+        var target = meshNodes[Math.floor(Math.random() * meshNodes.length)];
+        if (target) {
+          target.active = !target.active;
+          updateStats();
+        }
+      });
+    }
+
+    window.addEventListener('resize', resize);
+    resize();
+    spawnPacket();
+    update();
+  })();
 </script>

@@ -4,11 +4,6 @@
   "title": "Guardians AI — Déploiement du Module de Prévention des Risques",
   "description": "Intégration du système d'alerte SOS furtif et détection de mouvements d'urgence dans l'application Flutter.",
   "repo": "https://github.com/kryshandy/mysecure",
-  "tags": [
-    "Flutter",
-    "Sécurité",
-    "Urgence",
-    "Mobile"
-  ],
+  "tags": ["Flutter", "Sécurité", "Urgence", "Mobile"],
   "project": "Guardians AI"
 }

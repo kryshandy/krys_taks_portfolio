@@ -12,13 +12,14 @@ interface Props {
 }
 const {
   title = 'Tchuente Takodjou Krys Handy — Concepteur Logiciel & IA',
-  description = "Portfolio de Tchuente Takodjou Krys Handy. Concepteur logiciel, développeur full-stack & mobile, expert en IA offline-first, réseaux Cisco et cybersécurité à Yaoundé, Cameroun.",
+  description = 'Portfolio de Tchuente Takodjou Krys Handy. Concepteur logiciel, développeur full-stack & mobile, expert en IA offline-first, réseaux Cisco et cybersécurité à Yaoundé, Cameroun.',
   canonical,
   ogImage = '/favicon.svg',
-  noIndex
+  noIndex,
 } = Astro.props;
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="fr" class="dark">
   <head>
     <meta charset="UTF-8" />
@@ -39,13 +40,14 @@ const {
     <meta name="theme-color" content="#030712" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   </head>
-  <body class="bg-background text-foreground antialiased min-h-screen flex flex-col selection:bg-primary/30 selection:text-primary-foreground">
+  <body
+    class="flex min-h-screen flex-col bg-background text-foreground antialiased selection:bg-primary/30 selection:text-primary-foreground"
+  >
     <slot />
     <script is:inline>
-      (function() {
+      (function () {
         try {
           var theme = localStorage.getItem('theme');
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
           if (theme === 'light') {
             document.documentElement.classList.add('light');
             document.documentElement.classList.remove('dark');
@@ -53,7 +55,7 @@ const {
             document.documentElement.classList.add('dark');
             document.documentElement.classList.remove('light');
           }
-        } catch (e) {}
+        } catch {}
       })();
     </script>
   </body>

@@ -1,34 +1,58 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { SOCIAL_LINKS, PERSONAL_INFO } from '../utils/constants';
+import { PERSONAL_INFO } from '../utils/constants';
 ---
+
 <section id="contact" class="section bg-surface/30">
   <div class="container-premium">
-    <header class="max-w-3xl mx-auto text-center mb-16">
-      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/50 bg-surface/50 text-caption font-medium text-muted-foreground mb-4">
-        <Icon name="lucide:mail" class="w-4 h-4 text-primary" aria-hidden="true" />
+    <header class="mx-auto mb-16 max-w-3xl text-center">
+      <span
+        class="mb-4 inline-flex items-center gap-2 rounded-full border border-border/50 bg-surface/50 px-3 py-1 text-caption font-medium text-muted-foreground"
+      >
+        <Icon name="lucide:mail" class="h-4 w-4 text-primary" aria-hidden="true" />
         Me Contacter
       </span>
-      <h2 class="text-display-md font-display font-bold tracking-tight text-foreground mb-4">
+      <h2 class="mb-4 font-display text-display-md font-bold tracking-tight text-foreground">
         Construisons l'avenir ensemble
       </h2>
       <p class="text-body-lg text-muted-foreground/90">
-        Ouvert aux opportunités de stage, alternance, projets d'ingénierie logicielle et collaborations à fort impact.
+        Ouvert aux opportunités de stage, alternance, projets d'ingénierie logicielle et
+        collaborations à fort impact.
       </p>
     </header>
 
-    <div class="grid gap-8 lg:grid-cols-2 max-w-5xl mx-auto">
+    <div class="mx-auto grid max-w-5xl gap-8 lg:grid-cols-2">
       <div class="card-premium-elevated p-6 sm:p-8">
-        <h3 class="text-heading-md font-bold text-foreground mb-6">M'envoyer un message direct</h3>
-        <form id="contact-form" class="space-y-5" action="mailto:tchuentekryshandy@gmail.com" method="GET" enctype="text/plain">
+        <h3 class="mb-6 text-heading-md font-bold text-foreground">M'envoyer un message direct</h3>
+        <form
+          id="contact-form"
+          class="space-y-5"
+          action="mailto:tchuentekryshandy@gmail.com"
+          method="GET"
+          enctype="text/plain"
+        >
           <div class="grid gap-5 sm:grid-cols-2">
             <div>
               <label for="name" class="label-premium">Votre Nom</label>
-              <input type="text" id="name" name="name" required class="input-premium" placeholder="Nom et prénom" />
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                class="input-premium"
+                placeholder="Nom et prénom"
+              />
             </div>
             <div>
               <label for="email" class="label-premium">Votre Adresse Email</label>
-              <input type="email" id="email" name="email" required class="input-premium" placeholder="nom@exemple.com" />
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                class="input-premium"
+                placeholder="nom@exemple.com"
+              />
             </div>
           </div>
 
@@ -36,8 +60,12 @@ import { SOCIAL_LINKS, PERSONAL_INFO } from '../utils/constants';
             <label for="subject" class="label-premium">Objet de la demande</label>
             <select id="subject" name="subject" required class="input-premium">
               <option value="">Sélectionnez un motif</option>
-              <option value="Opportunité de Stage / Alternance">Opportunité de Stage / Alternance</option>
-              <option value="Projet Mobile ou IA Offline-First">Projet Mobile ou IA Offline-First</option>
+              <option value="Opportunité de Stage / Alternance"
+                >Opportunité de Stage / Alternance</option
+              >
+              <option value="Projet Mobile ou IA Offline-First"
+                >Projet Mobile ou IA Offline-First</option
+              >
               <option value="Développement Web Full-Stack">Développement Web Full-Stack</option>
               <option value="Audit Réseau ou Cybersécurité">Audit Réseau ou Cybersécurité</option>
               <option value="Collaboration ou Autre">Autre échange professionnel</option>
@@ -46,11 +74,21 @@ import { SOCIAL_LINKS, PERSONAL_INFO } from '../utils/constants';
 
           <div>
             <label for="message" class="label-premium">Votre Message</label>
-            <textarea id="message" name="body" required rows="5" class="input-premium resize-y" placeholder="Détaillez votre projet, vos objectifs ou votre proposition..."></textarea>
+            <textarea
+              id="message"
+              name="body"
+              required
+              rows="5"
+              class="input-premium resize-y"
+              placeholder="Détaillez votre projet, vos objectifs ou votre proposition..."
+            ></textarea>
           </div>
 
-          <button type="submit" class="btn-primary w-full sm:w-auto flex items-center justify-center gap-2">
-            <Icon name="lucide:send" class="w-4 h-4" />
+          <button
+            type="submit"
+            class="btn-primary flex w-full items-center justify-center gap-2 sm:w-auto"
+          >
+            <Icon name="lucide:send" class="h-4 w-4" />
             Envoyer mon message
           </button>
         </form>
@@ -58,54 +96,72 @@ import { SOCIAL_LINKS, PERSONAL_INFO } from '../utils/constants';
 
       <div class="space-y-6">
         <div class="card-premium p-6 sm:p-8">
-          <h3 class="text-heading-sm font-bold text-foreground mb-4 flex items-center gap-2">
-            <Icon name="lucide:file-text" class="w-5 h-5 text-primary" />
+          <h3 class="mb-4 flex items-center gap-2 text-heading-sm font-bold text-foreground">
+            <Icon name="lucide:file-text" class="h-5 w-5 text-primary" />
             Curriculum Vitae Officiel
           </h3>
-          <p class="text-body-sm text-muted-foreground mb-5 leading-relaxed">
-            Téléchargez mon CV complet au format PDF contenant mon parcours académique, mes réalisations et mes certifications détaillées.
+          <p class="mb-5 text-body-sm leading-relaxed text-muted-foreground">
+            Téléchargez mon CV complet au format PDF contenant mon parcours académique, mes
+            réalisations et mes certifications détaillées.
           </p>
           <a
             href={PERSONAL_INFO.cvPath}
             download
-            class="flex items-center gap-3.5 p-4 rounded-xl border border-primary/30 bg-primary/10 hover:bg-primary/20 transition-all group"
+            class="group flex items-center gap-3.5 rounded-xl border border-primary/30 bg-primary/10 p-4 transition-all hover:bg-primary/20"
           >
-            <div class="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center text-primary">
-              <Icon name="lucide:download" class="w-6 h-6 group-hover:scale-110 transition-transform" />
+            <div
+              class="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/20 text-primary"
+            >
+              <Icon
+                name="lucide:download"
+                class="h-6 w-6 transition-transform group-hover:scale-110"
+              />
             </div>
             <div class="flex-1">
               <p class="text-body-sm font-bold text-foreground">CV — Tchuente Krys Handy</p>
-              <p class="text-caption text-muted-foreground font-mono">Format PDF · Mis à jour</p>
+              <p class="font-mono text-caption text-muted-foreground">Format PDF · Mis à jour</p>
             </div>
-            <Icon name="lucide:arrow-right" class="w-4 h-4 text-primary" />
+            <Icon name="lucide:arrow-right" class="h-4 w-4 text-primary" />
           </a>
         </div>
 
         <div class="card-premium p-6 sm:p-8">
-          <h3 class="text-heading-sm font-bold text-foreground mb-4 flex items-center gap-2">
-            <Icon name="lucide:phone-call" class="w-5 h-5 text-primary" />
+          <h3 class="mb-4 flex items-center gap-2 text-heading-sm font-bold text-foreground">
+            <Icon name="lucide:phone-call" class="h-5 w-5 text-primary" />
             Liaison Directe
           </h3>
           <div class="space-y-3.5">
-            <a href={'mailto:' + PERSONAL_INFO.email} class="flex items-center gap-3 p-3 rounded-xl bg-surface/60 border border-border/40 hover:border-primary/40 transition-colors">
-              <Icon name="lucide:mail" class="w-5 h-5 text-primary shrink-0" />
+            <a
+              href={'mailto:' + PERSONAL_INFO.email}
+              class="flex items-center gap-3 rounded-xl border border-border/40 bg-surface/60 p-3 transition-colors hover:border-primary/40"
+            >
+              <Icon name="lucide:mail" class="h-5 w-5 shrink-0 text-primary" />
               <div class="truncate">
-                <span class="text-caption text-muted-foreground block">Email</span>
-                <span class="text-body-sm font-medium text-foreground truncate">{PERSONAL_INFO.email}</span>
+                <span class="block text-caption text-muted-foreground">Email</span>
+                <span class="truncate text-body-sm font-medium text-foreground"
+                  >{PERSONAL_INFO.email}</span
+                >
               </div>
             </a>
-            <a href={'tel:' + PERSONAL_INFO.phone} class="flex items-center gap-3 p-3 rounded-xl bg-surface/60 border border-border/40 hover:border-primary/40 transition-colors">
-              <Icon name="lucide:phone" class="w-5 h-5 text-primary shrink-0" />
+            <a
+              href={'tel:' + PERSONAL_INFO.phone}
+              class="flex items-center gap-3 rounded-xl border border-border/40 bg-surface/60 p-3 transition-colors hover:border-primary/40"
+            >
+              <Icon name="lucide:phone" class="h-5 w-5 shrink-0 text-primary" />
               <div>
-                <span class="text-caption text-muted-foreground block">Téléphone / WhatsApp</span>
+                <span class="block text-caption text-muted-foreground">Téléphone / WhatsApp</span>
                 <span class="text-body-sm font-medium text-foreground">{PERSONAL_INFO.phone}</span>
               </div>
             </a>
-            <div class="flex items-center gap-3 p-3 rounded-xl bg-surface/60 border border-border/40">
-              <Icon name="lucide:map-pin" class="w-5 h-5 text-primary shrink-0" />
+            <div
+              class="flex items-center gap-3 rounded-xl border border-border/40 bg-surface/60 p-3"
+            >
+              <Icon name="lucide:map-pin" class="h-5 w-5 shrink-0 text-primary" />
               <div>
-                <span class="text-caption text-muted-foreground block">Localisation</span>
-                <span class="text-body-sm font-medium text-foreground">{PERSONAL_INFO.location}</span>
+                <span class="block text-caption text-muted-foreground">Localisation</span>
+                <span class="text-body-sm font-medium text-foreground"
+                  >{PERSONAL_INFO.location}</span
+                >
               </div>
             </div>
           </div>

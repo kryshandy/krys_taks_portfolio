@@ -13,8 +13,16 @@ interface Props {
 }
 const { title, description, canonical, ogImage, noIndex, ...rest } = Astro.props;
 ---
-<BaseLayout title={title} description={description} canonical={canonical} ogImage={ogImage} noIndex={noIndex} {...rest}>
-  <a href="#main-content" class="sr-only focus:not-sr-only fixed top-4 left-4 z-[1000] btn-primary">
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  noIndex={noIndex}
+  {...rest}
+>
+  <a href="#main-content" class="btn-primary sr-only fixed left-4 top-4 z-[1000] focus:not-sr-only">
     Aller au contenu principal
   </a>
   <Header navItems={NAV_ITEMS} />

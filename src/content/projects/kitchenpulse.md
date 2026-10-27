@@ -1,30 +1,30 @@
 ---
-title: "KitchenPulse — Gestion de Restauration Connectée en Temps Réel"
-shortTitle: "KitchenPulse"
-type: "web"
-status: "production"
-role: "lead"
+title: 'KitchenPulse — Gestion de Restauration Connectée en Temps Réel'
+shortTitle: 'KitchenPulse'
+type: 'web'
+status: 'production'
+role: 'lead'
 year: 2025
-startDate: "2024-05"
-endDate: "2025-06"
-stack: ["React", "Node.js", "Express", "WebSockets", "Tailwind CSS", "PostgreSQL"]
-description: "Système de gestion et commande de restaurant temps réel interconnectant clients, serveurs, cuisine et administration avec suivi des allergènes et calories."
+startDate: '2024-05'
+endDate: '2025-06'
+stack: ['React', 'Node.js', 'Express', 'WebSockets', 'Tailwind CSS', 'PostgreSQL']
+description: 'Système de gestion et commande de restaurant temps réel interconnectant clients, serveurs, cuisine et administration avec suivi des allergènes et calories.'
 problem: "Goulots d'étranglement entre prise de commande, cuisine et facturation, causant des retards de service et des incidents graves liés aux allergies alimentaires non signalées."
 solution: "Plateforme web full-stack réactive avec liaison bidirectionnelle WebSockets : tableau de bord cuisine instantané, borne client avec filtre d'allergènes et calcul calorique automatisé."
 impact: "Réduction de 35% du temps d'attente, synchronisation sous 50ms entre postes, 0 incident d'allergie recensé."
 metrics:
-  - label: "Latence synchronisation"
-    value: "<50ms"
-  - label: "Temps commande"
-    value: "-35%"
-  - label: "Rôles connectés"
-    value: "4 interfaces"
-repoUrl: "https://github.com/kryshandy/KitchenPulse"
+  - label: 'Latence synchronisation'
+    value: '<50ms'
+  - label: 'Temps commande'
+    value: '-35%'
+  - label: 'Rôles connectés'
+    value: '4 interfaces'
+repoUrl: 'https://github.com/kryshandy/KitchenPulse'
 featured: true
 highlight: false
-client: "Restauration moderne"
+client: 'Restauration moderne'
 teamSize: 2
-duration: "8 mois"
+duration: '8 mois'
 order: 3
 ---
 

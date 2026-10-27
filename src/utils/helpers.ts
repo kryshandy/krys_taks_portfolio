@@ -1,4 +1,3 @@
-import type { CollectionEntry } from 'astro:content';
 import { clsx } from 'clsx';
 
 export function cn(...inputs: (string | undefined | null | false | Record<string, boolean>)[]) {
@@ -11,7 +10,7 @@ export function formatDate(date: Date | string, options: Intl.DateTimeFormatOpti
     year: 'numeric',
     month: 'long',
     day: 'numeric',
-    ...options
+    ...options,
   }).format(d);
 }
 
@@ -19,7 +18,7 @@ export function formatDateShort(date: Date | string) {
   const d = new Date(date);
   return new Intl.DateTimeFormat('fr-FR', {
     year: 'numeric',
-    month: 'short'
+    month: 'short',
   }).format(d);
 }
 
@@ -100,7 +99,7 @@ export function getProjectTypeColor(type: string): string {
     cloud: 'badge-success',
     architecture: 'badge-warning',
     consulting: 'bg-purple-500/10 border-purple-500/30 text-purple-400',
-    ai: 'bg-pink-500/10 border-pink-500/30 text-pink-400'
+    ai: 'bg-pink-500/10 border-pink-500/30 text-pink-400',
   };
   return colors[type] || 'badge';
 }
@@ -111,7 +110,7 @@ export function getRoleColor(role: string): string {
     senior: 'badge-primary',
     founder: 'bg-amber-500/10 border-amber-500/30 text-amber-400',
     consultant: 'badge-success',
-    cto: 'bg-orange-500/10 border-orange-500/30 text-orange-400'
+    cto: 'bg-orange-500/10 border-orange-500/30 text-orange-400',
   };
   return colors[role] || 'badge';
 }

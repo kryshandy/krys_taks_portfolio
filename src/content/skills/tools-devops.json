@@ -5,14 +5,7 @@
   "years": 3,
   "description": "Maîtrise des environnements Linux, automatisation Bash/Shell, Git/GitHub pour le versioning d'équipe et conteneurisation Docker.",
   "icon": "lucide:terminal",
-  "tags": [
-    "Linux (Debian/Ubuntu)",
-    "Git & GitHub",
-    "Docker",
-    "Bash / Shell",
-    "GNS3",
-    "VS Code"
-  ],
+  "tags": ["Linux (Debian/Ubuntu)", "Git & GitHub", "Docker", "Bash / Shell", "GNS3", "VS Code"],
   "featured": false,
   "order": 6
 }

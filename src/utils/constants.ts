@@ -3,8 +3,10 @@ export const PERSONAL_INFO = {
   displayName: 'Tchuente Krys Handy',
   monogram: 'KH',
   role: 'Concepteur Logiciel · Développeur Full-Stack & Mobile · IA Embarquée & Cybersécurité',
-  tagline: 'Je conçois des architectures logicielles, des applications mobiles offline-first et des systèmes sécurisés à fort impact sociétal.',
-  bioShort: 'Étudiant en Informatique & Intelligence Artificielle à Keyce Informatique (Yaoundé), lauréat de compétitions technologiques (1er Prix Hackathon EEUEZ, Finaliste Panafricain GCD4F) et bâtisseur de solutions logicielles résilientes.',
+  tagline:
+    'Je conçois des architectures logicielles, des applications mobiles offline-first et des systèmes sécurisés à fort impact sociétal.',
+  bioShort:
+    'Étudiant en Informatique & Intelligence Artificielle à Keyce Informatique (Yaoundé), lauréat de compétitions technologiques (1er Prix Hackathon EEUEZ, Finaliste Panafricain GCD4F) et bâtisseur de solutions logicielles résilientes.',
   location: 'Yaoundé, Cameroun',
   email: 'tchuentekryshandy@gmail.com',
   phone: '+237 655 08 09 13',
@@ -15,7 +17,7 @@ export const PERSONAL_INFO = {
   github: 'https://github.com/kryshandy',
   githubUser: 'kryshandy',
   linkedin: 'https://linkedin.com/in/tchuentekryshandy',
-  cvPath: '/CV_TCHUENTE_KRYS_HANDY.pdf'
+  cvPath: '/CV_TCHUENTE_KRYS_HANDY.pdf',
 } as const;
 
 export const NAV_ITEMS = [
@@ -26,7 +28,7 @@ export const NAV_ITEMS = [
   { label: 'Parcours', href: '#parcours' },
   { label: 'Lab Résilience', href: '#lab' },
   { label: 'Activité', href: '#activite' },
-  { label: 'Contact', href: '#contact' }
+  { label: 'Contact', href: '#contact' },
 ] as const;
 
 export const SOCIAL_LINKS = [
@@ -34,26 +36,26 @@ export const SOCIAL_LINKS = [
     name: 'GitHub',
     href: 'https://github.com/kryshandy',
     icon: 'lucide:github',
-    label: 'Découvrir mes projets sur GitHub'
+    label: 'Découvrir mes projets sur GitHub',
   },
   {
     name: 'LinkedIn',
     href: 'https://linkedin.com/in/tchuentekryshandy',
     icon: 'lucide:linkedin',
-    label: 'Me contacter sur LinkedIn'
+    label: 'Me contacter sur LinkedIn',
   },
   {
     name: 'Email',
     href: 'mailto:tchuentekryshandy@gmail.com',
     icon: 'lucide:mail',
-    label: 'M\'écrire un email direct'
+    label: "M'écrire un email direct",
   },
   {
     name: 'Téléphone',
     href: 'tel:+237655080913',
     icon: 'lucide:phone',
-    label: '+237 655 08 09 13'
-  }
+    label: '+237 655 08 09 13',
+  },
 ] as const;
 
 export const SKILL_CATEGORIES = [
@@ -62,7 +64,7 @@ export const SKILL_CATEGORIES = [
   { key: 'reliability', label: 'Cybersécurité & Réseaux Cisco', icon: 'lucide:shield-check' },
   { key: 'architecture', label: 'Architecture Logicielle', icon: 'lucide:layers' },
   { key: 'cloud', label: 'Systèmes, Linux & DevOps', icon: 'lucide:terminal' },
-  { key: 'leadership', label: 'Leadership & Impact Civique', icon: 'lucide:award' }
+  { key: 'leadership', label: 'Leadership & Impact Civique', icon: 'lucide:award' },
 ] as const;
 
 export const PROJECT_TYPES = [
@@ -71,7 +73,7 @@ export const PROJECT_TYPES = [
   { key: 'web', label: 'Web & SaaS', icon: 'lucide:globe' },
   { key: 'architecture', label: 'Architecture & Réseaux', icon: 'lucide:layers' },
   { key: 'cloud', label: 'Systèmes & DevOps', icon: 'lucide:server' },
-  { key: 'consulting', label: 'Gestion & Impact', icon: 'lucide:briefcase' }
+  { key: 'consulting', label: 'Gestion & Impact', icon: 'lucide:briefcase' },
 ] as const;
 
 export const EXPERIENCE_TYPES = [
@@ -79,12 +81,12 @@ export const EXPERIENCE_TYPES = [
   { key: 'freelance', label: 'Projets Indépendants' },
   { key: 'founder', label: 'Initiative / Lead Tech' },
   { key: 'consulting', label: 'Consulting' },
-  { key: 'internship', label: 'Cursus & Formation' }
+  { key: 'internship', label: 'Cursus & Formation' },
 ] as const;
 
 export const TESTIMONIAL_SOURCES = [
   { key: 'client', label: 'Client' },
   { key: 'colleague', label: 'Collaborateur' },
   { key: 'manager', label: 'Mentor / Jury' },
-  { key: 'partner', label: 'Partenaire' }
+  { key: 'partner', label: 'Partenaire' },
 ] as const;

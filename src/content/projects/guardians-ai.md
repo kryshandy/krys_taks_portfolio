@@ -1,29 +1,37 @@
 ---
-title: "Guardians AI (mySecure) — Sécurité Personnelle & Prévention des Risques"
-shortTitle: "Guardians AI"
-type: "mobile"
-status: "development"
-role: "founder"
+title: 'Guardians AI (mySecure) — Sécurité Personnelle & Prévention des Risques'
+shortTitle: 'Guardians AI'
+type: 'mobile'
+status: 'development'
+role: 'founder'
 year: 2026
-startDate: "2024-11"
-stack: ["Flutter", "Dart", "Intelligence Artificielle", "Géolocalisation", "Protocoles d'Urgence", "SMS Gateway"]
+startDate: '2024-11'
+stack:
+  [
+    'Flutter',
+    'Dart',
+    'Intelligence Artificielle',
+    'Géolocalisation',
+    "Protocoles d'Urgence",
+    'SMS Gateway',
+  ]
 description: "Solution mobile multiplateforme intelligente dédiée à la prévention des enlèvements et à la protection en situation d'urgence via détection d'anomalies."
 problem: "Les agressions et risques d'enlèvements surviennent brutalement : la victime ne dispose ni du temps ni de la liberté physique d'interagir avec une interface classique."
 solution: "Développement d'un système d'alerte furtif capable d'analyser les signaux contextuels, déclencher des protocoles SOS silencieux et dispatcher la position géoréférencée en temps réel aux contacts de confiance."
 impact: "Déclenchement d'alerte critique en moins de 3 secondes, résilience des canaux d'émission (SMS/Data/Mesh), interface de secours intuitive."
 metrics:
-  - label: "Déclenchement SOS"
-    value: "<3s"
-  - label: "Canaux alertes"
-    value: "Multi-vecteurs"
-  - label: "Plateformes"
-    value: "iOS & Android"
-repoUrl: "https://github.com/kryshandy/mysecure"
+  - label: 'Déclenchement SOS'
+    value: '<3s'
+  - label: 'Canaux alertes'
+    value: 'Multi-vecteurs'
+  - label: 'Plateformes'
+    value: 'iOS & Android'
+repoUrl: 'https://github.com/kryshandy/mysecure'
 featured: true
 highlight: true
-client: "Projet personnel de protection civile"
+client: 'Projet personnel de protection civile'
 teamSize: 1
-duration: "6 mois"
+duration: '6 mois'
 order: 2
 ---
 

@@ -1,29 +1,30 @@
 ---
-title: "VoxIA — IA Offline-First pour Personnes Malvoyantes"
-shortTitle: "VoxIA"
-type: "ai"
-status: "development"
-role: "lead"
+title: 'VoxIA — IA Offline-First pour Personnes Malvoyantes'
+shortTitle: 'VoxIA'
+type: 'ai'
+status: 'development'
+role: 'lead'
 year: 2026
-startDate: "2024-09"
-stack: ["Kotlin", "Android SDK", "On-Device AI", "Offline NLP", "Speech Recognition", "TTS", "Room DB"]
+startDate: '2024-09'
+stack:
+  ['Kotlin', 'Android SDK', 'On-Device AI', 'Offline NLP', 'Speech Recognition', 'TTS', 'Room DB']
 description: "Application Android native intégrant une IA 100% hors-ligne pour assister les personnes malvoyantes au quotidien sans dépendre d'une connexion internet."
 problem: "En Afrique subsaharienne et en zones à connectivité instable, les solutions d'assistance visuelle basées sur le cloud sont inexploitables et coûteuses en données pour les personnes malvoyantes."
 solution: "Conception d'une architecture offline-first en Kotlin natif embarquant des modèles de reconnaissance vocale et contextuelle sur l'appareil. Traitement local instantané des commandes, navigation assistée et description audio sans requête réseau."
-impact: "Autonomie complète sans internet, latence de réponse < 150ms, préservation totale de la confidentialité des données utilisateur."
+impact: 'Autonomie complète sans internet, latence de réponse < 150ms, préservation totale de la confidentialité des données utilisateur.'
 metrics:
-  - label: "Mode hors-ligne"
-    value: "100%"
-  - label: "Latence traitement"
-    value: "<150ms"
-  - label: "Dépendance réseau"
-    value: "0 Ko"
-repoUrl: "https://github.com/Henri-Michel-Essomba-Djomeni/VoxIA"
+  - label: 'Mode hors-ligne'
+    value: '100%'
+  - label: 'Latence traitement'
+    value: '<150ms'
+  - label: 'Dépendance réseau'
+    value: '0 Ko'
+repoUrl: 'https://github.com/Henri-Michel-Essomba-Djomeni/VoxIA'
 featured: true
 highlight: true
-client: "Projet à fort impact social"
+client: 'Projet à fort impact social'
 teamSize: 2
-duration: "En continu"
+duration: 'En continu'
 order: 1
 ---
 

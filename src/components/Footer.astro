@@ -2,70 +2,89 @@
 import { SOCIAL_LINKS, NAV_ITEMS, PERSONAL_INFO } from '../utils/constants';
 import { Icon } from 'astro-icon/components';
 ---
+
 <footer class="border-t border-border/50 bg-surface/50 backdrop-blur-xl">
   <div class="container-premium py-12 lg:py-16">
     <div class="grid gap-8 md:grid-cols-3 lg:grid-cols-4">
       <div class="lg:col-span-2">
-        <a href="#accueil" class="flex items-center gap-3 mb-4 group" aria-label="Retour en haut">
-          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 border border-primary/30 flex items-center justify-center font-display font-extrabold text-heading-md text-gradient-primary">
+        <a href="#accueil" class="group mb-4 flex items-center gap-3" aria-label="Retour en haut">
+          <div
+            class="text-gradient-primary flex h-10 w-10 items-center justify-center rounded-xl border border-primary/30 bg-gradient-to-br from-primary/20 via-primary/10 to-accent/20 font-display text-heading-md font-extrabold"
+          >
             {PERSONAL_INFO.monogram}
           </div>
           <div>
-            <span class="font-display font-bold text-heading-sm text-foreground block">{PERSONAL_INFO.fullName}</span>
+            <span class="block font-display text-heading-sm font-bold text-foreground"
+              >{PERSONAL_INFO.fullName}</span
+            >
             <span class="text-caption text-muted-foreground">{PERSONAL_INFO.location}</span>
           </div>
         </a>
-        <p class="text-body-sm text-muted-foreground max-w-sm mb-6 leading-relaxed">
+        <p class="mb-6 max-w-sm text-body-sm leading-relaxed text-muted-foreground">
           {PERSONAL_INFO.tagline}
         </p>
         <div class="flex flex-wrap gap-2.5">
-          {SOCIAL_LINKS.map((social) => (
-            <a
-              href={social.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={social.label}
-              class="flex items-center justify-center w-10 h-10 rounded-xl border border-border/50 bg-surface/50 text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-200 ease-smooth"
-            >
-              <Icon name={social.icon} class="w-4 h-4" />
-            </a>
-          ))}
+          {
+            SOCIAL_LINKS.map(social => (
+              <a
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+                class="flex h-10 w-10 items-center justify-center rounded-xl border border-border/50 bg-surface/50 text-muted-foreground transition-all duration-200 ease-smooth hover:border-primary/40 hover:bg-primary/5 hover:text-primary"
+              >
+                <Icon name={social.icon} class="h-4 w-4" />
+              </a>
+            ))
+          }
         </div>
       </div>
 
       <div>
-        <h3 class="font-semibold text-body mb-4 text-foreground">Navigation</h3>
+        <h3 class="mb-4 text-body font-semibold text-foreground">Navigation</h3>
         <nav aria-label="Navigation pied de page">
           <ul class="space-y-2.5">
-            {NAV_ITEMS.map((item) => (
-              <li>
-                <a href={item.href} class="text-body-sm text-muted-foreground hover:text-primary transition-colors">
-                  {item.label}
-                </a>
-              </li>
-            ))}
+            {
+              NAV_ITEMS.map(item => (
+                <li>
+                  <a
+                    href={item.href}
+                    class="text-body-sm text-muted-foreground transition-colors hover:text-primary"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
         </nav>
       </div>
 
       <div>
-        <h3 class="font-semibold text-body mb-4 text-foreground">Coordonnées</h3>
-        <address class="not-italic space-y-2.5 text-body-sm text-muted-foreground">
+        <h3 class="mb-4 text-body font-semibold text-foreground">Coordonnées</h3>
+        <address class="space-y-2.5 text-body-sm not-italic text-muted-foreground">
           <p class="flex items-center gap-2">
-            <Icon name="lucide:map-pin" class="w-4 h-4 text-primary shrink-0" />
+            <Icon name="lucide:map-pin" class="h-4 w-4 shrink-0 text-primary" />
             <span>{PERSONAL_INFO.location}</span>
           </p>
           <p class="flex items-center gap-2">
-            <Icon name="lucide:mail" class="w-4 h-4 text-primary shrink-0" />
-            <a href={'mailto:' + PERSONAL_INFO.email} class="hover:text-primary transition-colors truncate">{PERSONAL_INFO.email}</a>
+            <Icon name="lucide:mail" class="h-4 w-4 shrink-0 text-primary" />
+            <a
+              href={'mailto:' + PERSONAL_INFO.email}
+              class="truncate transition-colors hover:text-primary">{PERSONAL_INFO.email}</a
+            >
           </p>
           <p class="flex items-center gap-2">
-            <Icon name="lucide:phone" class="w-4 h-4 text-primary shrink-0" />
-            <a href={'tel:' + PERSONAL_INFO.phone} class="hover:text-primary transition-colors">{PERSONAL_INFO.phone}</a>
+            <Icon name="lucide:phone" class="h-4 w-4 shrink-0 text-primary" />
+            <a href={'tel:' + PERSONAL_INFO.phone} class="transition-colors hover:text-primary"
+              >{PERSONAL_INFO.phone}</a
+            >
           </p>
           <div class="pt-2">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-caption font-medium">
-              <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+            <span
+              class="inline-flex items-center gap-1.5 rounded-full border border-green-500/30 bg-green-500/10 px-3 py-1 text-caption font-medium text-green-400"
+            >
+              <span class="h-1.5 w-1.5 animate-pulse rounded-full bg-green-400"></span>
               Ouvert aux opportunités
             </span>
           </div>
@@ -73,11 +92,14 @@ import { Icon } from 'astro-icon/components';
       </div>
     </div>
 
-    <div class="mt-12 pt-8 border-t border-border/50 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-body-sm text-muted-foreground text-center sm:text-left">
-        © {new Date().getFullYear()} {PERSONAL_INFO.fullName}. Tous droits réservés.
+    <div
+      class="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border/50 pt-8 sm:flex-row"
+    >
+      <p class="text-center text-body-sm text-muted-foreground sm:text-left">
+        © {new Date().getFullYear()}
+        {PERSONAL_INFO.fullName}. Tous droits réservés.
       </p>
-      <p class="text-caption text-muted-foreground/70 font-mono text-center sm:text-right">
+      <p class="text-center font-mono text-caption text-muted-foreground/70 sm:text-right">
         Conçu avec Astro, Tailwind CSS & Rigueur d'Ingénierie
       </p>
     </div>

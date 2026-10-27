@@ -3,57 +3,75 @@ import ThemeToggle from './ThemeToggle.astro';
 import { Icon } from 'astro-icon/components';
 import { PERSONAL_INFO, NAV_ITEMS } from '../utils/constants';
 ---
-<header class="fixed top-0 left-0 right-0 z-[100] bg-background/80 backdrop-blur-xl border-b border-border/40">
+
+<header
+  class="fixed left-0 right-0 top-0 z-[100] border-b border-border/40 bg-background/80 backdrop-blur-xl"
+>
   <nav class="container-premium" aria-label="Navigation principale">
     <div class="flex h-16 items-center justify-between gap-4">
-      <a href="#accueil" class="flex items-center gap-3 text-foreground hover:opacity-80 transition-opacity" aria-label="Accueil">
-        <div class="w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center font-display font-extrabold text-heading-sm text-primary">
+      <a
+        href="#accueil"
+        class="flex items-center gap-3 text-foreground transition-opacity hover:opacity-80"
+        aria-label="Accueil"
+      >
+        <div
+          class="flex h-10 w-10 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 font-display text-heading-sm font-extrabold text-primary"
+        >
           {PERSONAL_INFO.monogram}
         </div>
-        <span class="font-display font-bold text-body-sm leading-tight hidden sm:inline">{PERSONAL_INFO.displayName}</span>
+        <span class="hidden font-display text-body-sm font-bold leading-tight sm:inline"
+          >{PERSONAL_INFO.displayName}</span
+        >
       </a>
 
-      <div class="hidden lg:flex items-center gap-1">
-        {NAV_ITEMS.map((item) => (
-          <a
-            href={item.href}
-            class="px-3 py-1.5 rounded-lg text-body-sm font-medium text-muted-foreground hover:text-foreground hover:bg-surface-elevated/50 transition-all duration-200 ease-smooth"
-          >
-            {item.label}
-          </a>
-        ))}
+      <div class="hidden items-center gap-1 lg:flex">
+        {
+          NAV_ITEMS.map(item => (
+            <a
+              href={item.href}
+              class="rounded-lg px-3 py-1.5 text-body-sm font-medium text-muted-foreground transition-all duration-200 ease-smooth hover:bg-surface-elevated/50 hover:text-foreground"
+            >
+              {item.label}
+            </a>
+          ))
+        }
       </div>
 
       <div class="flex items-center gap-2">
         <ThemeToggle />
 
         <button
-          class="lg:hidden p-2 rounded-xl text-muted-foreground hover:text-foreground hover:bg-accent/5 transition-all"
+          class="rounded-xl p-2 text-muted-foreground transition-all hover:bg-accent/5 hover:text-foreground lg:hidden"
           aria-label="Ouvrir le menu"
           data-mobile-menu-toggle
         >
-          <Icon name="lucide:menu" class="w-5 h-5" />
+          <Icon name="lucide:menu" class="h-5 w-5" />
         </button>
       </div>
     </div>
 
-    <div class="lg:hidden overflow-hidden transition-all duration-300 ease-smooth h-0" data-mobile-menu>
-      <div class="py-4 space-y-1 border-t border-border/40">
-        {NAV_ITEMS.map((item) => (
-          <a
-            href={item.href}
-            class="block px-3 py-2.5 rounded-xl text-body-sm font-medium text-muted-foreground hover:text-foreground hover:bg-accent/5 transition-all duration-200 ease-smooth"
-          >
-            {item.label}
-          </a>
-        ))}
-        <div class="pt-3 border-t border-border/40">
+    <div
+      class="h-0 overflow-hidden transition-all duration-300 ease-smooth lg:hidden"
+      data-mobile-menu
+    >
+      <div class="space-y-1 border-t border-border/40 py-4">
+        {
+          NAV_ITEMS.map(item => (
+            <a
+              href={item.href}
+              class="block rounded-xl px-3 py-2.5 text-body-sm font-medium text-muted-foreground transition-all duration-200 ease-smooth hover:bg-accent/5 hover:text-foreground"
+            >
+              {item.label}
+            </a>
+          ))
+        }
+        <div class="border-t border-border/40 pt-3">
           <a
             href={PERSONAL_INFO.cvPath}
             download
-            class="flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-primary text-primary-foreground text-body-sm font-semibold"
+            class="flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-2.5 text-body-sm font-semibold text-primary-foreground"
           >
-            <Icon name="lucide:download" class="w-4 h-4" />
+            <Icon name="lucide:download" class="h-4 w-4" />
             Télécharger mon CV
           </a>
         </div>
@@ -65,13 +83,13 @@ import { PERSONAL_INFO, NAV_ITEMS } from '../utils/constants';
     var toggle = document.querySelector('[data-mobile-menu-toggle]');
     var menu = document.querySelector('[data-mobile-menu]');
     if (toggle && menu) {
-      toggle.addEventListener('click', function() {
+      toggle.addEventListener('click', function () {
         var isOpen = menu.classList.toggle('h-auto');
         menu.classList.toggle('h-0');
         toggle.setAttribute('aria-expanded', String(isOpen));
       });
-      menu.querySelectorAll('a').forEach(function(link) {
-        link.addEventListener('click', function() {
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
           menu.classList.remove('h-auto');
           menu.classList.add('h-0');
           toggle.setAttribute('aria-expanded', 'false');

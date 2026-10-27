@@ -7,6 +7,7 @@ Bienvenue sur la documentation de maintenance de votre portfolio personnel. Ce s
 ## 🚀 1. Lancement Rapide en Local
 
 Ouvrez un terminal dans ce dossier :
+
 ```bash
 # Lancer le serveur de développement local
 npm run dev
@@ -17,6 +18,7 @@ npm run tina
 # Tester la compilation de production
 npm run build
 ```
+
 Le site sera accessible sur : `http://localhost:4321/`  
 L'interface d'administration TinaCMS sera sur : `http://localhost:4321/admin`
 
@@ -40,30 +42,30 @@ Pour ajouter un nouveau projet, créez simplement un fichier (ex: `mon-nouveau-p
 
 ```markdown
 ---
-title: "Nom du Projet — Sous-titre"
-shortTitle: "Nom Court"
-type: "mobile" # Choix possibles : 'web', 'mobile', 'cloud', 'architecture', 'consulting', 'ai'
-status: "production" # Choix possibles : 'production', 'beta', 'development', 'archived', 'concept'
-role: "lead" # Choix possibles : 'lead', 'senior', 'founder', 'consultant', 'cto', 'contributor'
+title: 'Nom du Projet — Sous-titre'
+shortTitle: 'Nom Court'
+type: 'mobile' # Choix possibles : 'web', 'mobile', 'cloud', 'architecture', 'consulting', 'ai'
+status: 'production' # Choix possibles : 'production', 'beta', 'development', 'archived', 'concept'
+role: 'lead' # Choix possibles : 'lead', 'senior', 'founder', 'consultant', 'cto', 'contributor'
 year: 2026
-startDate: "2026-01"
-endDate: "2026-06" # Optionnel
-stack: ["Kotlin", "Flutter", "Python", "Tailwind CSS"]
-description: "Description concise du projet affichée sur la carte (max 300 car)."
-problem: "Problème réel auquel le projet répond (max 500 car)."
-solution: "Solution technologique apportée (max 500 car)."
-impact: "Résultats concrets et retombées (max 500 car)."
+startDate: '2026-01'
+endDate: '2026-06' # Optionnel
+stack: ['Kotlin', 'Flutter', 'Python', 'Tailwind CSS']
+description: 'Description concise du projet affichée sur la carte (max 300 car).'
+problem: 'Problème réel auquel le projet répond (max 500 car).'
+solution: 'Solution technologique apportée (max 500 car).'
+impact: 'Résultats concrets et retombées (max 500 car).'
 metrics:
-  - label: "Métrique 1"
-    value: "100%"
-  - label: "Métrique 2"
-    value: "< 100ms"
-demoUrl: "https://votre-demo.com" # Optionnel
-repoUrl: "https://github.com/kryshandy/mon-projet" # Optionnel
+  - label: 'Métrique 1'
+    value: '100%'
+  - label: 'Métrique 2'
+    value: '< 100ms'
+demoUrl: 'https://votre-demo.com' # Optionnel
+repoUrl: 'https://github.com/kryshandy/mon-projet' # Optionnel
 featured: true # Mettre 'true' pour afficher dans les Projets Phares
 highlight: true # Mettre 'true' pour ajouter le badge spécial
 teamSize: 2
-duration: "4 mois"
+duration: '4 mois'
 order: 1 # Ordre d'affichage
 ---
 
@@ -84,20 +86,20 @@ Créez un fichier Markdown (ex: `nouveau-role.md`) :
 ```markdown
 ---
 company: "Nom de l'Organisation / Entreprise"
-role: "Intitulé du Rôle ou Diplôme"
-type: "internship" # Choix : 'full-time', 'freelance', 'founder', 'consulting', 'internship'
-location: "Yaoundé, Cameroun"
-startDate: "2026-01"
-endDate: "2026-12" # Laissez vide si 'current: true'
+role: 'Intitulé du Rôle ou Diplôme'
+type: 'internship' # Choix : 'full-time', 'freelance', 'founder', 'consulting', 'internship'
+location: 'Yaoundé, Cameroun'
+startDate: '2026-01'
+endDate: '2026-12' # Laissez vide si 'current: true'
 current: true # Mettre 'true' si c'est votre poste/statut actuel
-description: "Description globale de la mission ou de la formation."
+description: 'Description globale de la mission ou de la formation.'
 achievements:
-  - "Réalisation majeure 1"
-  - "Réalisation majeure 2"
-  - "Réalisation majeure 3"
-stack: ["Python", "Docker", "Cisco IOS"]
+  - 'Réalisation majeure 1'
+  - 'Réalisation majeure 2'
+  - 'Réalisation majeure 3'
+stack: ['Python', 'Docker', 'Cisco IOS']
 highlights:
-  - "Point fort marquant"
+  - 'Point fort marquant'
 order: 1
 ---
 ```
@@ -110,6 +112,7 @@ Les compétences sont des fichiers JSON typés situés dans :
 📁 **`src/content/skills/`**
 
 Exemple pour créer ou modifier une compétence :
+
 ```json
 {
   "category": "fullstack", // Choix : 'architecture', 'fullstack', 'reliability', 'cloud', 'ai', 'leadership'
@@ -132,6 +135,7 @@ Les activités s'affichent dans le journal chronologique :
 📁 **`src/content/activities/`**
 
 Créez un fichier JSON (ex: `2026-06-nouvelle-certif.json`) :
+
 ```json
 {
   "date": "2026-06-15",
@@ -150,10 +154,11 @@ Créez un fichier JSON (ex: `2026-06-nouvelle-certif.json`) :
 ## 📄 7. Mettre à Jour votre Fichier CV
 
 Pour actualiser votre CV à télécharger :
+
 1. Exportez votre nouveau CV en PDF.
 2. Renommez-le exactement : **`CV_TCHUENTE_KRYS_HANDY.pdf`**
 3. Déposez-le dans le dossier : **`public/CV_TCHUENTE_KRYS_HANDY.pdf`**
-Le bouton de téléchargement du site servira automatiquement votre nouveau fichier sans aucune modification de code.
+   Le bouton de téléchargement du site servira automatiquement votre nouveau fichier sans aucune modification de code.
 
 ---
 
@@ -162,6 +167,7 @@ Le bouton de téléchargement du site servira automatiquement votre nouveau fich
 Le site génère un code statique ultra-performant et sécurisé (`dist/`). Vous pouvez l'héberger gratuitement sur :
 
 ### Option A — Cloudflare Pages (Recommandé)
+
 1. Créez un dépôt GitHub pour `portfolio-premium` (ex: `github.com/kryshandy/portfolio`).
 2. Dans Cloudflare Dashboard > **Workers & Pages** > **Create application** > **Pages** > Connect to Git.
 3. Configurez :
@@ -171,8 +177,9 @@ Le site génère un code statique ultra-performant et sécurisé (`dist/`). Vous
 4. Cliquez sur **Save and Deploy**. Votre site sera en ligne avec SSL mondial en moins de 60 secondes !
 
 ### Option B — Vercel ou Netlify
+
 - Importez le dépôt Git, Vercel et Netlify détectent automatiquement Astro et compilent en un clic.
 
 ---
 
-*Fait sur-mesure pour TCHUENTE TAKODJOU KRYS HANDY. Rigueur, impact et excellence technique.*
+_Fait sur-mesure pour TCHUENTE TAKODJOU KRYS HANDY. Rigueur, impact et excellence technique._

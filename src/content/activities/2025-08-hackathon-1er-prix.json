@@ -3,11 +3,6 @@
   "type": "milestone",
   "title": "1er Prix au Hackathon EEUEZ — Projet SanteCam",
   "description": "Victoire au hackathon technologique avec la solution d'orientation médicale intelligente et triage clinique d'urgence.",
-  "tags": [
-    "1er Prix",
-    "Hackathon",
-    "e-Santé",
-    "IA"
-  ],
+  "tags": ["1er Prix", "Hackathon", "e-Santé", "IA"],
   "project": "SanteCam"
 }

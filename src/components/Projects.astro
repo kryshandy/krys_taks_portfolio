@@ -4,56 +4,77 @@ import { Icon } from 'astro-icon/components';
 import ProjectCard from './ProjectCard.astro';
 
 const allProjects = await getCollection('projects');
-const featuredProjects = allProjects.filter(p => p.data.featured).sort((a, b) => a.data.order - b.data.order);
-const otherProjects = allProjects.filter(p => !p.data.featured).sort((a, b) => a.data.order - b.data.order);
+const featuredProjects = allProjects
+  .filter(p => p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
+const otherProjects = allProjects
+  .filter(p => !p.data.featured)
+  .sort((a, b) => a.data.order - b.data.order);
 ---
+
 <section id="realisations" class="section bg-surface/30">
   <div class="container-premium">
-    <header class="max-w-3xl mx-auto text-center mb-16">
-      <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border/50 bg-surface/50 text-caption font-medium text-muted-foreground mb-4">
-        <Icon name="lucide:folder-kanban" class="w-4 h-4 text-primary" aria-hidden="true" />
+    <header class="mx-auto mb-16 max-w-3xl text-center">
+      <span
+        class="mb-4 inline-flex items-center gap-2 rounded-full border border-border/50 bg-surface/50 px-3 py-1 text-caption font-medium text-muted-foreground"
+      >
+        <Icon name="lucide:folder-kanban" class="h-4 w-4 text-primary" aria-hidden="true" />
         Réalisations & Projets
       </span>
-      <h2 class="text-display-md font-display font-bold tracking-tight text-foreground mb-4">
+      <h2 class="mb-4 font-display text-display-md font-bold tracking-tight text-foreground">
         Des solutions conçues pour le terrain et l'impact réel
       </h2>
       <p class="text-body-lg text-muted-foreground/90">
-        Applications mobiles natives, systèmes d'IA offline-first, plateformes web temps réel et infrastructures réseaux.
+        Applications mobiles natives, systèmes d'IA offline-first, plateformes web temps réel et
+        infrastructures réseaux.
       </p>
     </header>
 
     <div class="space-y-14">
-      {featuredProjects.length > 0 && (
-        <div>
-          <div class="flex items-center gap-2.5 mb-8">
-            <Icon name="lucide:star" class="w-5 h-5 text-accent" aria-hidden="true" />
-            <h3 class="text-heading-md font-bold text-foreground">Projets Phares & Initiatives Majeures</h3>
+      {
+        featuredProjects.length > 0 && (
+          <div>
+            <div class="mb-8 flex items-center gap-2.5">
+              <Icon name="lucide:star" class="h-5 w-5 text-accent" aria-hidden="true" />
+              <h3 class="text-heading-md font-bold text-foreground">
+                Projets Phares & Initiatives Majeures
+              </h3>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2">
+              {featuredProjects.map(project => (
+                <ProjectCard project={project} featured={true} />
+              ))}
+            </div>
           </div>
-          <div class="grid gap-6 md:grid-cols-2">
-            {featuredProjects.map((project) => (
-              <ProjectCard project={project} featured={true} />
-            ))}
-          </div>
-        </div>
-      )}
+        )
+      }
 
-      {otherProjects.length > 0 && (
-        <div>
-          <div class="flex items-center gap-2.5 mb-8">
-            <Icon name="lucide:layers" class="w-5 h-5 text-primary" aria-hidden="true" />
-            <h3 class="text-heading-md font-bold text-foreground">Autres Systèmes, ERP & Laboratoires</h3>
+      {
+        otherProjects.length > 0 && (
+          <div>
+            <div class="mb-8 flex items-center gap-2.5">
+              <Icon name="lucide:layers" class="h-5 w-5 text-primary" aria-hidden="true" />
+              <h3 class="text-heading-md font-bold text-foreground">
+                Autres Systèmes, ERP & Laboratoires
+              </h3>
+            </div>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
+              {otherProjects.map(project => (
+                <ProjectCard project={project} featured={false} />
+              ))}
+            </div>
           </div>
-          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-2">
-            {otherProjects.map((project) => (
-              <ProjectCard project={project} featured={false} />
-            ))}
-          </div>
-        </div>
-      )}
+        )
+      }
 
-      <div class="text-center pt-6">
-        <a href="https://github.com/kryshandy" target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center gap-2">
-          <Icon name="lucide:github" class="w-4 h-4" aria-hidden="true" />
+      <div class="pt-6 text-center">
+        <a
+          href="https://github.com/kryshandy"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-primary inline-flex items-center gap-2"
+        >
+          <Icon name="lucide:github" class="h-4 w-4" aria-hidden="true" />
           Découvrir l'ensemble de mon code sur GitHub
         </a>
       </div>

@@ -1,111 +1,144 @@
 ---
 import { Icon } from 'astro-icon/components';
 import { PERSONAL_INFO, SOCIAL_LINKS } from '../utils/constants';
-
-interface Props {
-  ctaPrimary?: { label: string; href: string };
-  ctaSecondary?: { label: string; href: string };
-}
-
-const { ctaPrimary, ctaSecondary } = Astro.props;
 ---
-<section id="accueil" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-16 sm:py-24 lg:py-28">
-  <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(var(--primary)/0.12),transparent),radial-gradient(ellipse_60%_40%_at_100%_100%,hsl(var(--accent)/0.08),transparent)]" aria-hidden="true" />
+
+<section
+  id="accueil"
+  class="relative flex min-h-[90vh] items-center justify-center overflow-hidden py-16 sm:py-24 lg:py-28"
+>
+  <div
+    class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-20%,hsl(var(--primary)/0.12),transparent),radial-gradient(ellipse_60%_40%_at_100%_100%,hsl(var(--accent)/0.08),transparent)]"
+    aria-hidden="true"
+  >
+  </div>
 
   <div class="container-premium relative z-10">
-    <div class="max-w-4xl mx-auto text-center">
-      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border border-border/40 bg-surface/60 backdrop-blur-md mb-8 shadow-sm">
+    <div class="mx-auto max-w-4xl text-center">
+      <div
+        class="mb-8 inline-flex items-center gap-2.5 rounded-full border border-border/40 bg-surface/60 px-4 py-1.5 shadow-sm backdrop-blur-md"
+      >
         <span class="relative flex h-2.5 w-2.5">
-          <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
-          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          <span
+            class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"
+          ></span>
+          <span class="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500"></span>
         </span>
-        <span class="text-caption font-semibold text-foreground tracking-wide">
+        <span class="text-caption font-semibold tracking-wide text-foreground">
           {PERSONAL_INFO.availability}
         </span>
       </div>
 
-      <h1 class="text-display-xl font-display font-extrabold tracking-tight text-foreground mb-6">
+      <h1 class="mb-6 font-display text-display-xl font-extrabold tracking-tight text-foreground">
         <span class="block">{PERSONAL_INFO.fullName}</span>
       </h1>
 
-      <p class="text-display-sm font-semibold text-foreground mb-6 text-balance max-w-3xl mx-auto">
+      <p class="mx-auto mb-6 max-w-3xl text-balance text-display-sm font-semibold text-foreground">
         {PERSONAL_INFO.role}
       </p>
 
-      <p class="text-body-lg text-muted-foreground/90 max-w-2xl mx-auto mb-10 text-pretty leading-relaxed">
+      <p
+        class="mx-auto mb-10 max-w-2xl text-pretty text-body-lg leading-relaxed text-muted-foreground/90"
+      >
         {PERSONAL_INFO.bioShort}
       </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+      <div class="mb-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a href="#realisations" class="btn-primary w-full sm:w-auto">
-          <Icon name="lucide:folder-kanban" class="w-4 h-4" aria-hidden="true" />
+          <Icon name="lucide:folder-kanban" class="h-4 w-4" aria-hidden="true" />
           Explorer mes réalisations
         </a>
         <a href={PERSONAL_INFO.cvPath} download class="btn-secondary w-full sm:w-auto">
-          <Icon name="lucide:download" class="w-4 h-4" aria-hidden="true" />
+          <Icon name="lucide:download" class="h-4 w-4" aria-hidden="true" />
           Télécharger mon CV (PDF)
         </a>
         <a href="#contact" class="btn-outline w-full sm:w-auto">
-          <Icon name="lucide:mail" class="w-4 h-4" aria-hidden="true" />
+          <Icon name="lucide:mail" class="h-4 w-4" aria-hidden="true" />
           Me contacter
         </a>
       </div>
 
-      <div class="flex items-center justify-center flex-wrap gap-3 sm:gap-4 mb-12" role="list" aria-label="Liens réseaux">
-        {SOCIAL_LINKS.map((social) => (
-          <a
-            href={social.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={social.label}
-            class="flex items-center gap-2 px-3.5 py-2 rounded-xl border border-border/40 bg-surface/50 text-muted-foreground hover:text-primary hover:border-primary/40 hover:bg-primary/5 transition-all duration-200 ease-smooth group"
-            role="listitem"
-          >
-            <Icon name={social.icon} class="w-4 h-4 transition-transform group-hover:scale-110" aria-hidden="true" />
-            <span class="text-caption font-semibold">{social.name}</span>
-          </a>
-        ))}
+      <div
+        class="mb-12 flex flex-wrap items-center justify-center gap-3 sm:gap-4"
+        role="list"
+        aria-label="Liens réseaux"
+      >
+        {
+          SOCIAL_LINKS.map(social => (
+            <a
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={social.label}
+              class="group flex items-center gap-2 rounded-xl border border-border/40 bg-surface/50 px-3.5 py-2 text-muted-foreground transition-all duration-200 ease-smooth hover:border-primary/40 hover:bg-primary/5 hover:text-primary"
+              role="listitem"
+            >
+              <Icon
+                name={social.icon}
+                class="h-4 w-4 transition-transform group-hover:scale-110"
+                aria-hidden="true"
+              />
+              <span class="text-caption font-semibold">{social.name}</span>
+            </a>
+          ))
+        }
       </div>
 
-      <div class="flex flex-wrap items-center justify-center gap-2.5 text-caption text-muted-foreground">
-        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent font-medium">
-          <Icon name="lucide:trophy" class="w-3.5 h-3.5" aria-hidden="true" />
+      <div
+        class="flex flex-wrap items-center justify-center gap-2.5 text-caption text-muted-foreground"
+      >
+        <span
+          class="flex items-center gap-1.5 rounded-full border border-accent/30 bg-accent/10 px-3 py-1.5 font-medium text-accent"
+        >
+          <Icon name="lucide:trophy" class="h-3.5 w-3.5" aria-hidden="true" />
           1er Prix Hackathon EEUEZ
         </span>
-        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/10 text-primary font-medium">
-          <Icon name="lucide:globe" class="w-3.5 h-3.5" aria-hidden="true" />
+        <span
+          class="flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1.5 font-medium text-primary"
+        >
+          <Icon name="lucide:globe" class="h-3.5 w-3.5" aria-hidden="true" />
           Finaliste Africain GCD4F
         </span>
-        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/50 bg-surface/50 font-medium">
-          <Icon name="lucide:cpu" class="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
+        <span
+          class="flex items-center gap-1.5 rounded-full border border-border/50 bg-surface/50 px-3 py-1.5 font-medium"
+        >
+          <Icon name="lucide:cpu" class="h-3.5 w-3.5 text-emerald-400" aria-hidden="true" />
           IA Offline-First (VoxIA)
         </span>
-        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/50 bg-surface/50 font-medium">
-          <Icon name="lucide:shield-check" class="w-3.5 h-3.5 text-sky-400" aria-hidden="true" />
+        <span
+          class="flex items-center gap-1.5 rounded-full border border-border/50 bg-surface/50 px-3 py-1.5 font-medium"
+        >
+          <Icon name="lucide:shield-check" class="h-3.5 w-3.5 text-sky-400" aria-hidden="true" />
           Certifié OPSWAT CIP
         </span>
-        <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border/50 bg-surface/50 font-medium">
-          <Icon name="lucide:graduation-cap" class="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
+        <span
+          class="flex items-center gap-1.5 rounded-full border border-border/50 bg-surface/50 px-3 py-1.5 font-medium"
+        >
+          <Icon
+            name="lucide:graduation-cap"
+            class="h-3.5 w-3.5 text-amber-400"
+            aria-hidden="true"
+          />
           Keyce Informatique (Licence IA)
         </span>
       </div>
 
       <!-- Key Metrics Bar -->
-      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto">
-        <div class="p-4 rounded-xl bg-surface/60 border border-border/40">
-          <div class="text-heading-lg font-display font-bold text-primary">100%</div>
+      <div class="mx-auto mt-12 grid max-w-2xl grid-cols-2 gap-4 md:grid-cols-4">
+        <div class="rounded-xl border border-border/40 bg-surface/60 p-4">
+          <div class="font-display text-heading-lg font-bold text-primary">100%</div>
           <div class="text-caption text-muted-foreground">Offline-First</div>
         </div>
-        <div class="p-4 rounded-xl bg-surface/60 border border-border/40">
-          <div class="text-heading-lg font-display font-bold text-accent"><150ms</div>
+        <div class="rounded-xl border border-border/40 bg-surface/60 p-4">
+          <div class="font-display text-heading-lg font-bold text-accent">&lt;150ms</div>
           <div class="text-caption text-muted-foreground">Latence IA</div>
         </div>
-        <div class="p-4 rounded-xl bg-surface/60 border border-border/40">
-          <div class="text-heading-lg font-display font-bold text-emerald-400">8</div>
+        <div class="rounded-xl border border-border/40 bg-surface/60 p-4">
+          <div class="font-display text-heading-lg font-bold text-emerald-400">8</div>
           <div class="text-caption text-muted-foreground">Projets livrés</div>
         </div>
-        <div class="p-4 rounded-xl bg-surface/60 border border-border/40">
-          <div class="text-heading-lg font-display font-bold text-sky-400">3</div>
+        <div class="rounded-xl border border-border/40 bg-surface/60 p-4">
+          <div class="font-display text-heading-lg font-bold text-sky-400">3</div>
           <div class="text-caption text-muted-foreground">Certifications</div>
         </div>
       </div>

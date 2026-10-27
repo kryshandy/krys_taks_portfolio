@@ -4,10 +4,6 @@
   "title": "Certification OPSWAT Academy — CIP (Critical Infrastructure Protection)",
   "description": "Validation des compétences en protection des infrastructures critiques contre les cyberattaques et respect des protocoles de sécurité industrielle.",
   "url": "https://opswat.com",
-  "tags": [
-    "Cybersécurité",
-    "CIP",
-    "Infrastructures Critiques"
-  ],
+  "tags": ["Cybersécurité", "CIP", "Infrastructures Critiques"],
   "project": "Cybersécurité"
 }

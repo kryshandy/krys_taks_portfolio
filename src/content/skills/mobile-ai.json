@@ -5,15 +5,7 @@
   "years": 2,
   "description": "Développement natif Kotlin et multiplateforme Flutter avec intégration de modèles d'IA on-device et architectures offline-first.",
   "icon": "lucide:smartphone",
-  "tags": [
-    "Kotlin",
-    "Flutter",
-    "Android SDK",
-    "Dart",
-    "On-Device AI",
-    "Offline-first",
-    "Room DB"
-  ],
+  "tags": ["Kotlin", "Flutter", "Android SDK", "Dart", "On-Device AI", "Offline-first", "Room DB"],
   "featured": true,
   "order": 1
 }

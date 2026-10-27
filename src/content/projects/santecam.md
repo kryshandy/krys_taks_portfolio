@@ -1,29 +1,29 @@
 ---
 title: "SanteCam — Plateforme d'Orientation Médicale & e-Santé (1er Prix Hackathon)"
-shortTitle: "SanteCam"
-type: "ai"
-status: "beta"
-role: "lead"
+shortTitle: 'SanteCam'
+type: 'ai'
+status: 'beta'
+role: 'lead'
 year: 2025
-startDate: "2025-03"
-endDate: "2025-08"
-stack: ["React", "Python", "IA Décisionnelle", "FastAPI", "PostgreSQL", "Tailwind CSS"]
+startDate: '2025-03'
+endDate: '2025-08'
+stack: ['React', 'Python', 'IA Décisionnelle', 'FastAPI', 'PostgreSQL', 'Tailwind CSS']
 description: "Solution d'orientation des patients et pré-diagnostic médical d'urgence, lauréate du 1er Prix au Hackathon EEUEZ."
-problem: "Engorgement des urgences et errance médicale des patients ne sachant pas quel centre de santé ou spécialiste consulter pour leurs symptômes."
+problem: 'Engorgement des urgences et errance médicale des patients ne sachant pas quel centre de santé ou spécialiste consulter pour leurs symptômes.'
 solution: "Arbre de décision intelligent et moteur d'orientation clinique orientant les patients vers la structure la plus proche et adaptée, avec télé-orientation et dossier d'admission préliminaire."
-impact: "1er Prix Hackathon EEUEZ, réduction estimée du temps de premier triage de 45%, plébiscité par des professionnels de santé."
+impact: '1er Prix Hackathon EEUEZ, réduction estimée du temps de premier triage de 45%, plébiscité par des professionnels de santé.'
 metrics:
-  - label: "Distinction"
-    value: "1er Prix EEUEZ"
-  - label: "Triage pré-clinique"
-    value: "-45% temps"
+  - label: 'Distinction'
+    value: '1er Prix EEUEZ'
+  - label: 'Triage pré-clinique'
+    value: '-45% temps'
   - label: "Précision d'orientation"
-    value: "94%"
+    value: '94%'
 featured: true
 highlight: true
-client: "Projet Hackathon EEUEZ"
+client: 'Projet Hackathon EEUEZ'
 teamSize: 3
-duration: "5 mois"
+duration: '5 mois'
 order: 4
 ---
 
