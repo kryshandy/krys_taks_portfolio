@@ -2,6 +2,6 @@
 # Configuration Cloudflare Pages (deploiement statique)
 # Les en-tetes HTTP sont definis dans public/_headers
 
-name = "portfolio-premium"
+name = "krys-taks-portfolio"
 compatibility_date = "2025-01-01"
 pages_build_output_dir = "dist"
