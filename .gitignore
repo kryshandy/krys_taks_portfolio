@@ -48,6 +48,10 @@ coverage/
 # TinaCMS
 .tina/
 
+# Cloudflare
+.wrangler/
+.dev.vars*
+
 # Misc
 *.pem
 .vercel

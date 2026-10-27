@@ -1,7 +1,9 @@
 # Portfolio Premium — Tchuente Takodjou Krys Handy
-# Configuration Cloudflare Pages (deploiement statique)
+# Configuration Cloudflare Workers (assets statiques)
 # Les en-tetes HTTP sont definis dans public/_headers
 
 name = "krys-taks-portfolio"
 compatibility_date = "2025-01-01"
-pages_build_output_dir = "dist"
+
+[assets]
+directory = "./dist"
